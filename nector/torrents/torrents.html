@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <h2>Torrents</h2>
+   <ul>
+      <li>Torrent file that describes the hash table, which contains key values of chunks, is sent to the
+          receiver.
+          Assures the verification of integrity and authenticity. 
+         </li>
+      <li>
+         Torrents have a receiver-driven method, randomly asking for chunks from the sender. (load balancing) 
+         This also removes complexity from the sender.
+      </li>
+      <li>
+         Torrents use UDP.
+         NECTOR ensures reliability at the application layer through Network Coding.
+      </li>
+      <li>
+         More specific: for every file a (virtual) replica is created for every network the sender is
+         connected to, and thus this equals a seeder on each network.
+      </li>
+      <li>The torrent file with  is created and the packets are “network coded”</li>
+      <li>The torrent-file (incl Hash Table) is sent to the Receiver side where the Torrent Client “asks” for this file from the Seeders.</li>
+       <li>Every available network will have a copy (it can be the same file as
+         they are all connected to the same source), and transmission starts.</li>
+   </ul>
+</body>
+</html>

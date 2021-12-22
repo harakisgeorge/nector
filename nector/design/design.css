@@ -1,0 +1,23 @@
+.container h2 {
+  color: white;
+  margin-bottom: 70px;
+}
+
+#square {
+  width: 130px;
+  height: 130px;
+  background: red;
+  text-align: center;
+}
+
+.diagram {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#link {
+  background-color: cornsilk;
+  height: 5px;
+  width: 200px;
+}

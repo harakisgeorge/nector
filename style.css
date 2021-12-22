@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 90vh;
+}
+.container h1 {
+  color: white;
+  padding-bottom: 5rem;
+}
+
+.buttons-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 0 auto;
+}
+
+.buttons-group li a {
+  border: 2px solid #d2bdff;
+  color: white;
+  height: 80px;
+  width: 200px;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  margin: 25px;
+  padding: 2rem 1rem;
+}
+
+.buttons-group li a:hover {
+  background-color: brown;
+  padding: 2.4rem 1.4rem;
+}

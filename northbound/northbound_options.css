@@ -1,0 +1,40 @@
+.container h2 {
+  color: white;
+  margin-bottom: 70px;
+}
+
+#square1 {
+  width: 100px;
+  height: 80px;
+  background: var(--clr-grey-10);
+  text-align: center;
+}
+
+#square2 {
+  width: 80px;
+  height: 70px;
+  background: var(--clr-grey-5);
+  text-align: center;
+}
+
+.diagram {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#link1 {
+  background-color: cornsilk;
+  height: 5px;
+  width: 50px;
+}
+
+#link2 {
+  background-color: cornsilk;
+  height: 5px;
+  width: 20px;
+}
+
+.diagram {
+  margin-bottom: 250px;
+}

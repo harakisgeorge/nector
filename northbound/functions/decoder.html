@@ -5,18 +5,32 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
-   <link rel="stylesheet" href="../../style.css">
    <link rel="stylesheet" href="../../index.css">
    <link rel="stylesheet" href="functions.css">
 
 </head>
 <body>
    <div class="container">
+      <div class="navigate-button">
+         <a href="../../index.html" >Back to homepage</a>
+         <a href="../northbound_options.html" >Back to Northbound menu</a>
+
+      </div>
       <h2 class="title">NECTOR Decoder</h2>
       <div class="center-container">
          <p> It is responsible for performing the NC decoding at chunk level. It
             sends source chunks to the VGRAM. </p>
-      </div>
+            <img src="assets/decoder_c3.PNG" />
+         </div>
+         <h3>Three sub-functional blocks for NECTOR Encoder</h3>
+         <ul>
+            <li><b>NECTOR Decoder at C3</b></li>
+            <li>Decoder building blocks:</li>
+            <li>Chunk Collector: collects coded chunks from seeders via NECTOR client. These are passed to the NC Progressive Decoder.</li>
+            <li>NC Progressive Decoder: Performs network decoding using Pascal matrices. NECTOR Client is notified to stop the downloading via "Stop Downloading".</li>
+            <li>Receive NECTOR file:The NECTOR File is sent by the NECTOR Fixed Tracker. the Nector Client can start downloading this file.</li>
+            <li>Chunk Hash Verification: once chunks are decoded, here can they be verified.</li>
+         </ul>
    </div>
 </body>
 </html>

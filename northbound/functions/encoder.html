@@ -5,13 +5,17 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
-   <link rel="stylesheet" href="../../style.css">
    <link rel="stylesheet" href="../../index.css">
    <link rel="stylesheet" href="functions.css">
 
 </head>
 <body>
    <div class="container">
+      <div class="navigate-button">
+         <a href="../../index.html" >Back to homepage</a>
+         <a href="../northbound_options.html" >Back to Northbound menu</a>
+
+      </div>
       <h2 class="title">NECTOR Encoder</h2>
       <div class="center-container">
          <p> Responsible for creating chunks and NC encoding at chunk-level etc.
@@ -25,9 +29,34 @@
             Segment VGRAM/file into chunks. Usually the number of chunks is 32. Not to high to avoid NC complexity.
          </li>
          <li>
-            Bu the chunk length is depended on ABR (average bit rate) for video coding, videogram duration
+            But, the chunk length is depended on ABR (average bit rate) for video coding, videogram duration and number of chunks.
          </li>
-         <li></li>
+         <li>
+            The only constant is number of chunks, so the other three are variable.
+         </li>
+         <li><b>Output of :Chunk Creator</b></li>
+         <li>source chunk index number, source chunk size,source chunk payload</li>
+
+
+         <li><b>NC Encoder</b></li>
+         <li>
+            Performs network coding using Pascal matrices to encode source chunks
+         </li>
+         <li><b>Inputs of :NC Encoder</b></li>
+         <li>Source Chunks, Generation Size (number of chunks), Chunk Length, Field Size</li>
+         <li>Output of: NC Encoder</li>
+         <li>Coded Chunks are send when NECTOR client asks for more chunks after consulting the seeders and peers </li>
+         <li>Coded Chunks  contains: Chunk size,Generation Index,Generation Size,Chunk type,NC coefficients,Payload</li>
+
+
+         <li><b>Generate NECTOR File function</b></li>
+         <li>
+            There is a nector file for each VGRAM. The NECTOR Fixed Tracker then sends NECTOR File to the Peer (Leecher)
+            at the C3 node.
+         </li>
+         <li>
+            NECTOR file contains: File name, Nector file index, chunk hashes (verification), number of chunks, chunk length, last chunk length, creation time, expiration time, nector File-hash
+         </li>
       </ul>
    </div>
 </body>

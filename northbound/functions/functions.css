@@ -1,5 +1,18 @@
 .container {
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container a {
+  padding: 0.55rem 2rem;
+  background-color: white;
+}
+
+.navigate-button {
+  margin-bottom: 30px;
 }
 .center-container {
   margin-top: 100px;
@@ -7,7 +20,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 90%;
+  width: 80%;
 }
 
 .container img {
@@ -18,4 +31,8 @@
 
 .container ul {
   width: 80%;
+}
+
+.container ul .list-title {
+  margin-top: 50px;
 }

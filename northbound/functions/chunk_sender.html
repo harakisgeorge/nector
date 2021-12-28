@@ -5,7 +5,6 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
-   <link rel="stylesheet" href="../../style.css">
    <link rel="stylesheet" href="../../index.css">
    <link rel="stylesheet" href="functions.css">
 
@@ -18,11 +17,35 @@
 
       </div>
       <h2 class="title">NECTOR Chunk Sender</h2>
-      <div class="">
+      <div class="center-container">
          <p>Creating slices, NC coding at slice-level if required, sending
           slices over UDP, etc.</p>
+          <img src="assets/chunk_sender.PNG" />
 
       </div>
+      <ul>
+         <li class="list-title">Chunk sender general</li>
+         <li class="underline"></li>
+
+         <li>Chunk sender idetintied by: IP address, UDP port</li>
+
+         <li class="list-title">Chunk sender sub-blocks</li>
+         <li class="underline"></li>
+
+         <li>1 - Slice creator: create slices from chunks. (1472 bytes)</li>
+         <li>Slice creator output: Source Slice index number, Source Slice size, Source Chunk Payload.</li>
+         <li>2 - Send/Receive function: slices are sent over the UDP</li>
+         <li>Send/Receive function gets inputs from NECTOR Client on the Peer
+            (Leecher) IP address and Peer (Leecher) UDP/TCP port numbers</li>
+         <li>3 - Grouping Slices into Generations (Optional): The slices are grouped in generations. The generation size is
+            configurable by the user. The user may configure generation size to 8, 16, 32 and 64.</li>
+         <li>4 - NC Encoder (Optional): The same NC library is used as it was in the case of NC at
+            chunk-level. The code-rate is configured. The output of NC Encoder are coded slices. </li>
+
+         <li class="list-title">Coded slice fields</li>
+         <li class="underline"></li>
+         <li>Coded Slice size , Coded Slice index , Generation Index , Number of chunks , Slice type , NC coefficients , Payload – coded slice.</li>
+      </ul>
    </div>
 </body>
 </html>

@@ -21,40 +21,13 @@
          <p>– it is responsible for requesting more chunks from the relevant seeder.
             It also communicates with the NECTOR Fixed Tracker for being aware of the seeder
             status. It sends the received chunk to the NECTOR decoder.</p>
-         <img src="assets/c3_client.PNG" />
-         <img src="assets/c3_clientpart2.PNG" />
+            <img src="assets/c3_client.PNG" />
+
 
       </div>
       <ul>
          <li class="list-title">NECTOR Client Manager</li>
-         <li>Client Manager has two functionalities</li>
-         <li>1 - Communicating with Operating System Kernel: creates a Netlink socket that is used
-            for communication between the kernel and the application. Whenever the networks
-            are up or down, the operating system Kernel notifies the NECTOR Client Manager, by seeing which IPs are on.</li>
-         <li>2 - Creating/Removing NECTOR Peers (Seeders) As soon as the list of available IP
-            addresses are received from the operating system kernel, the NECTOR Client manager
-            creates/removes the different instances of the Peers depending on the available IP
-            addresses.  </li>
-
-         <li class="list-title">NECTOR Peer</li>
-         <li>Created by the NECTOR Manager</li>
-         <li>Parameters:IP address, UDP port, TCP port number,</li>
-         <li>NECTOR peer functionalities</li>
-         <li>1 - Receiving Chunk requests – A NECTOR Peer (Seeder) receives a chunk request from
-            other NECTOR Peers. The chunk request contains the IP address and the UDP port
-            number of the downloading Peer in order for Seeder to send the chunks to the
-            downloading Peer via UDP.</li>
-            <li>2 - Communication with NECTOR Encoder – The NECTOR Peer (Seeder) asks NECTOR
-               Encoder for a new chunk via “send new chunks” message. The NECTOR encoder sends
-               the new chunk to the NECTOR Peer (Seeder). The Seeder sends the new chunk to the
-               corresponding Leecher. </li>
-            <li>3 - Sending chunk to the Chunk Sender – Each NECTOR Peer (Seeder) has its
-               corresponding Chunk Sender. The Chunk is sent to the Chunk Sender for further
-               processing. </li>
-
-            <li>Communication with NECTOR Fixed Tracker (Figure above) – Peers send Client-Tracker
-               requests to NECTOR Fixed Tracker.</li>
-            <li>Client-Tracker contains: Client ID, Peer IP, timestamp, status,</li>
+         
 
       </ul>
    </div>

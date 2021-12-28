@@ -24,7 +24,8 @@
       </div>
       <h3>Three sub-functional blocks for NECTOR Encoder</h3>
       <ul>
-         <li><b>Chunk Creator</b></li>
+         <li class="list-title"><br>Chunk Creator</br></li>
+         <li class="underline"></li>
          <li>
             Segment VGRAM/file into chunks. Usually the number of chunks is 32. Not to high to avoid NC complexity.
          </li>
@@ -38,7 +39,9 @@
          <li>source chunk index number, source chunk size,source chunk payload</li>
 
 
-         <li><b>NC Encoder</b></li>
+         <li class="list-title"><br>NC Encoder</br></li>
+         <li class="underline"></li>
+
          <li>
             Performs network coding using Pascal matrices to encode source chunks
          </li>
@@ -49,7 +52,9 @@
          <li>Coded Chunks  contains: Chunk size,Generation Index,Generation Size,Chunk type,NC coefficients,Payload</li>
 
 
-         <li><b>Generate NECTOR File function</b></li>
+         <li><br>Generate NECTOR File function</br></li>
+         <li class="underline"></li>
+
          <li>
             There is a nector file for each VGRAM. The NECTOR Fixed Tracker then sends NECTOR File to the Peer (Leecher)
             at the C3 node.

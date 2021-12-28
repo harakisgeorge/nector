@@ -5,7 +5,6 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
-   <link rel="stylesheet" href="../../style.css">
    <link rel="stylesheet" href="../../index.css">
    <link rel="stylesheet" href="functions.css">
 </head>
@@ -20,7 +19,24 @@
       <div class="center-container">
          <p>Receiving IP-sized slices of the chunk data over UDP, and
 performing NC decoding if required. It sends received chunks to the NECTOR client.</p>
+<img src="assets/chunk_sender.PNG" />
+
       </div>
+      <ul>
+         <li class="list-title">Chunk receiver sub - functionalities</li>
+         <li class="underline"></li>
+         <li>1 - Send/Receive Function:  slices are received over UDP, send/receive function
+            gets inputs from NECTOR Client send/receive function
+            gets inputs from NECTOR Client on the PEER local IP address and PEER UDP/TCP port
+            numbers. </li>
+         <li>2 - NC Progressive Decoder (Optional for NC as FEC): NC as FEC at slice-level is optional. </li>
+         <li>3 - Grouping Slices into Generations (Optional for NC as FEC): The slices are re-grouped
+            in generations where the signaling information (generation size, slice length, etc.) are
+            received with slice headers.</li>
+         <li>4 - Chunk Constructor: It creates chunks from the received slices and sent them to the
+            NECTOR client.</li>
+
+   </ul>
    </div>
 </body>
 </html>

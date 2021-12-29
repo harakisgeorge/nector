@@ -22,12 +22,48 @@
             It also communicates with the NECTOR Fixed Tracker for being aware of the seeder
             status. It sends the received chunk to the NECTOR decoder.</p>
             <img src="assets/c3_client.PNG" />
+            <img src="assets/c3_clientpart2.PNG" style="height:300px;"/>
 
 
       </div>
       <ul>
-         <li class="list-title">NECTOR Client Manager</li>
+         <li class="list-title">NECTOR C3 Client sub-functionalities</li>
+         <li class="underline"></li>
+
+
+         <li class="list-title">Decoder building blocks:</li>
+         <li class="underline"></li>
+
+         <li>1 - NECTOR Client Manager</li>
+
+
+         <li>2 - NECTOR Peer</li>
+
+
+         <li class="list-title">NECTOR Client Manager functionalities</li>
+         <li class="underline"></li>
+
+         <li>1 - Operating System Kernel sends the notification to NECTOR Client Manager whenever
+            a new network is available. For the C3 node, there is only one fixed network, hence
+            there is only initial one-time signaling between the Client Manager and the Operating
+            System Kernel.</li>
+         <li>2 - The NECTOR Decoder sends the notification to the NECTOR Client Manager whenever
+            a new NECTOR File is available. The NECTOR Client Manager then activates the Peer
+            to start downloading the chunks via “Start Downloading” message.</li>
+         <li>3 - The NECTOR Decoder sends the notification to the NECTOR Client manager when all
+            the chunks are received. The Client Manager then notifies the Peer to stop
+            downloading the chunks via “Stop Downloading” message.</li>
+
          
+         <li class="list-title">NECTOR Peer</li>
+         <li class="underline"></li>
+         <li>Each peer is identified by: ip address, UDP port number, TCP port number (at C3 same IP but different port)</li>
+
+         <li>The NECTOR peer (leecher) has: </li>
+         <li>Each Peer sends the Client-Tracker Request to NECTOR Fixed Tracker and The NECTOR
+            Tracker sends Tracker Response (See above).</li>
+         <li>It requests chunks from the list of available Peers. The chunk request message
+               contains the following keys: number of chunks requested in one chunk request, UDP port number to receive the chunks, IP address to receive the chunks</li>
 
       </ul>
    </div>

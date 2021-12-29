@@ -6,6 +6,11 @@
   height: 120vh;
 }
 
+.navigate-button {
+  margin-bottom: 30px;
+  padding: 0.55rem 2rem;
+  background-color: white;
+}
 .container h2 {
   color: white;
   margin-bottom: 70px;

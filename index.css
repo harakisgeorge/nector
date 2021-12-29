@@ -57,10 +57,9 @@
 }
 body {
   font-family: Quicksand, serif;
-  background: #363333;
+  background: #08001b;
   line-height: 1.5;
   font-size: 0.875rem;
-  height: 100vh;
 }
 ul {
   list-style-type: none;

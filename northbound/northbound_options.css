@@ -9,7 +9,13 @@
 .navigate-button {
   margin-bottom: 30px;
   padding: 0.55rem 2rem;
+  opacity: 0.5;
+
   background-color: white;
+}
+
+.navigate-button:hover {
+  opacity: 1;
 }
 .container h2 {
   color: white;
@@ -19,15 +25,24 @@
 #square1 {
   width: 100px;
   height: 80px;
-  background: var(--clr-grey-10);
+  background: rgba(255, 255, 255, 0.1);
   text-align: center;
+  opacity: 0.5;
 }
 
+#square1:hover {
+  opacity: 1;
+}
 #square2 {
   width: 80px;
   height: 70px;
-  background: var(--clr-grey-5);
+  background: rgba(255, 255, 255, 0.1);
   text-align: center;
+  opacity: 0.5;
+}
+
+#square2:hover {
+  opacity: 1;
 }
 
 .diagram {
@@ -50,4 +65,11 @@
 
 .diagram {
   margin-bottom: 250px;
+}
+
+.navigate-button a {
+  color: black;
+}
+a {
+  color: white;
 }

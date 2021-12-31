@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.navigate-button {
+  margin-bottom: 30px;
+  padding: 0.55rem 2rem;
+  background-color: white;
+  border-radius: 10px;
+  width: 150px;
+  opacity: 0.5;
+  color: black;
+  text-align: center;
+  cursor: pointer;
+}
+
+.navigate-button:hover {
+  opacity: 1;
+}
+li {
+  color: white;
+}
+.container h2 {
+  color: white;
+  margin-bottom: 70px;
+}
+
+#square {
+  width: 130px;
+  height: 130px;
+  background: red;
+  text-align: center;
+}
+
+.diagram {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#link {
+  background-color: cornsilk;
+  height: 5px;
+  width: 200px;
+}

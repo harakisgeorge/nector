@@ -25,11 +25,68 @@
          <h3>Three sub-functional blocks for NECTOR Encoder</h3>
          <ul>
             <li><b>NECTOR Decoder at C3</b></li>
-            <li>Decoder building blocks:</li>
-            <li>Chunk Collector: collects coded chunks from seeders via NECTOR client. These are passed to the NC Progressive Decoder.</li>
-            <li>NC Progressive Decoder: Performs network decoding using Pascal matrices. NECTOR Client is notified to stop the downloading via "Stop Downloading".</li>
-            <li>Receive NECTOR file:The NECTOR File is sent by the NECTOR Fixed Tracker. the Nector Client can start downloading this file.</li>
+            <li class="list-title">Decoder building blocks</li>
+            <li class="underline"></li>
+            <li></li>
+            <li>Chunk Collector: collects coded chunks from seeders via NECTOR client. 
+               These are passed to the NC Progressive Decoder.</li>
+            <li class="underline3"></li>
+
+            <li>NC Progressive Decoder: Performs network decoding using Pascal matrices. 
+               NECTOR Client is notified to stop the downloading via "Stop Downloading".</li>
+            <li class="underline3"></li>
+
+            <li>Receive NECTOR file:The NECTOR File is sent by the NECTOR Fixed Tracker. 
+               the Nector Client can start downloading this file.</li>
+            <li class="underline3"></li>
+
             <li>Chunk Hash Verification: once chunks are decoded, here can they be verified.</li>
+         </ul>
+
+
+
+
+
+
+         <div class="content">
+            <svg id="more-arrows">
+              <polygon class="arrow-top" points="37.6,27.9 1.8,1.3 3.3,0 37.6,25.3 71.9,0 73.7,1.3 "/>
+              <polygon class="arrow-middle" points="37.6,45.8 0.8,18.7 4.4,16.4 37.6,41.2 71.2,16.4 74.5,18.7 "/>
+              <polygon class="arrow-bottom" points="37.6,64 0,36.1 5.1,32.8 37.6,56.8 70.4,32.8 75.5,36.1 "/>
+            </svg>
+          </div>
+      
+          <h2 class="title">Decoder - Code</h2>
+          <ul>
+            
+            <li class="list-title">chunk-collector.cc</li>
+            <li class="underline2"></li>
+
+            <li class="function-name"><u>Constructor ( ChunkCollector )</u></li>
+
+
+            <li class="function-name"><u>Destructor ( ChunkCollector )</u></li>
+            <li>Function 1: Simple clean up</li>
+
+            <li class="function-name"><u>Clean up ( cleanup )</u></li>
+            <li>Function 1: take the map of all the chunks</li>
+            <li>Function 2: Iterate through all the chunks abd erase delete them</li>
+
+            <li class="function-name"><u>Add a slice  ( addSlice )</u></li>
+            <li>Parameter : nectorSlice</li>
+            <li>Function 1: generate the chunk ID</li>
+            <li>Function 2: Find the chunk or create a new one</li>
+            <li>Function 3: if the chunk iterator is not at 
+               its end create a new nector chunk</li>
+
+
+            <li class="function-name"><u>Output operator  ( operator )</u></li>
+            <li>Parameter : OS, chunkCollector</li>
+            <li>Function 1: Iterate through the chunk collector and
+               print each chunk.
+            </li>
+
+
          </ul>
    </div>
 </body>

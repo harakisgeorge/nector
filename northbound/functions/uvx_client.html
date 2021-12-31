@@ -69,6 +69,142 @@
             <li class="list-title">Client-Tracker and Tracker-Tracker sequence of events</li>
             <li class="underline"></li>
       </ul>
+
+      <div class="content">
+         <svg id="more-arrows">
+           <polygon class="arrow-top" points="37.6,27.9 1.8,1.3 3.3,0 37.6,25.3 71.9,0 73.7,1.3 "/>
+           <polygon class="arrow-middle" points="37.6,45.8 0.8,18.7 4.4,16.4 37.6,41.2 71.2,16.4 74.5,18.7 "/>
+           <polygon class="arrow-bottom" points="37.6,64 0,36.1 5.1,32.8 37.6,56.8 70.4,32.8 75.5,36.1 "/>
+         </svg>
+       </div>
+
+       <h2 class="title">UVX - NECTOR Client - Code</h2>
+       <ul>
+         <li class="list-title">nector-client.cc</li>
+         <li class="underline2"></li>
+
+         <li class="function-name"><u>Constructor ( NECTORClient )</u></li>
+         <li>Description: has parameters that have to do with NECTOR client identifier, peersSliceSettings,controlSessionTimeout,chunkProgressTimeout,chunkProgressAfterSlicesTimeout</li>
+         <li>Initiliziation of pointers etc.: encoder, decoder, timeouts, client_manager, setDownloading set to false</li>
+
+
+         <li class="function-name"><u>Destructor ( NECTORClient )</u></li>
+         <li>Description: ?? Iterates through the peers and deletes them??</li>
+
+         <li class="function-name"><u>Add peer ( addPeer )</u></li>
+         <li>Parameters: 1)ip address </li>
+         <li>Function 1: Filter address by checking if its ipv4 or ipv6</li>
+         <li>Function 2: Add address, check if it exists and also if 
+            there is a client manager</li>
+         <li>Create the peer, using parameters such as address, adding timeouts (e.g. chunk timeout)</li>
+         <li>Finally add the peer in the list of peers.</li>
+
+
+         <li class="function-name"><u>Remove peer ( removePeer )</u></li>
+         <li>Parameters: 1)ip address </li>
+         <li>Function: loop through the peers and if there is a match with the parameter delete. </li>
+
+
+         <li class="function-name"><u>Setter functions ( setClientManager, useNectorEncoder , useNectorDecoder) </u></li>
+         <li>Parameters: pointer to clientManager,encoder and decoder </li>
+         <li>Function: set clientManager, encoder and decoder. </li>
+
+         <li class="function-name"><u>Process new file from memory ( processNewFileFromMemory )</u></li>
+         <li>Parameters: inputData, inputSize, fileName, expirationTime </li>
+         <li>Function 1: Check if encoder is not null</li>
+         <li>Function 1: Encoder will process the new file from memory (according to the given parameters)</li>
+
+
+         <li class="function-name"><u>Process new file from memory ( processNewFileFromMemory )</u></li>
+         <li>Parameters: inputData, inputSize, fileName, expirationTime </li>
+         <li>Function 1: Check if encoder is not null</li>
+         <li>Function 1: Encoder will process the new file from memory 
+            (according to the given parameters)</li>
+
+
+         <li class="function-name"><u>Process New file to download( processNewFileToDownload )</u></li>
+         <li>Parameters: pointer to a nectorFile </li>
+         <li>Function 1: Check if decoder is not null</li>
+         <li>Function 2: setDownloading to true</li>
+         <li>Function 2: Clean up the encoder</li>
+         <li>Function 3: Tell peers to stop ongoing download of old file
+                  and then the Encoder should start processing the new File.
+         </li>
+
+         <li class="function-name"><u>Stop processing( stopProcessing )</u></li>
+         <li>Parameters: boolean called justStopDownloading </li>
+         <li>Function 1: Set downloading to false</li>
+         <li>Function 2: Iterate through peers </li>
+         <li>Function 3: While in the loop close sessions and stop downloading 
+            of the peers </li>
+
+
+         <li class="function-name"><u>Check expiry ( isExpired )</u></li>
+         <li>Function 1: Check if peer is not downloading and the expiration
+               time is not out yet.
+         </li>
+
+         <li class="function-name"><u>Update remote endpoints ( remoteEndpointsUpdated )</u></li>
+         <li>Parameters: clientIdentifier, endpoints </li>
+         <li>General function: check connections against list of remote
+            endpoints
+         </li>
+         <li>Function 1: Check if there is downloading going on </li>
+         <li>Function 2: Check every remote endpoint address </li>
+         <li>Function 3: Check each local Nector peer and if protocols
+            match between endpoint and peerIterator then
+            connect a new session, if not connected already </li>
+
+
+         <li class="function-name"><u>Print slice NC map( dumpSliceNcMap )</u></li>
+         <li>Parameters: ip address,  nector slices map</li>
+         <li>Function 1: NC settings for peer, destination address, 
+            nc settings for peer</li>
+
+
+         <li class="function-name"><u>Get slice settings maps</u></li>
+         <li>????? </li>
+         
+
+      </ul>
+
+      <ul>
+         <li class="list-title">nector-peer.cc</li>
+         <li class="underline2"></li>
+
+         <li class="function-name"><u>Constructor ( NECTORPeerSession )</u></li>
+         <li>Parameters: peer, chunk sender, chunk receiver, remote client identifier
+            remote endpoint, control socket, timeout timer, chunk progress timeout timer,
+            is outgoing connection, datasocket endpoint, data socket.
+         </li>
+         <li>Function 1: disable MPTCP, to ensure explicit address handling</li>
+         <li>Function 2: Bind socket</li>
+         <li>Function 3: Obtain data socket's port</li>
+
+         <li class="function-name"><u>Destructor ( NECTORPeerSession )</u></li>
+         <li>Function 1: delete  control socket</li>
+
+         <li class="function-name"><u>Close socket function ( shutdown )</u></li>
+         <li>Function 1: if socket not null , close it</li>
+
+
+         <li class="function-name"><u>Another Contructor ( NECTORPeer )</u></li>
+         <li>Function 1: ????????????????????????</li>
+
+         
+         <li class="function-name"><u>Another Destructor ( NECTORPeer )</u></li>
+         <li>Function 1: stop io service</li>
+         <li>Function 2: wait for thread to finish</li>
+         <li>Function 3: clean up the rest</li>
+
+         <li class="function-name"><u>Shut down all sessions (stopDownloading)</u></li>
+         <li>Function 1: iterate and stop all sessions</li>
+
+
+         <li class="function-name"><u>Shut down all sessions (closeSessions)</u></li>
+         <li>Function 1: iterate and stop all sessions</li>
+
+      </ul>
    </div>
 </body>
 </html>

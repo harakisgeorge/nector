@@ -5,7 +5,21 @@
   flex-wrap: wrap;
   flex-direction: row;
 }
+.navigate-button {
+  margin-bottom: 30px;
+  padding: 0.55rem 2rem;
+  background-color: white;
+  border-radius: 10px;
+  width: 150px;
+  opacity: 0.5;
+  color: black;
+  text-align: center;
+  cursor: pointer;
+}
 
+.navigate-button:hover {
+  opacity: 1;
+}
 .container .card {
   position: relative;
   width: 400px;

@@ -5,22 +5,6 @@
   flex-wrap: wrap;
   flex-direction: row;
 }
-.container h2 {
-  margin-bottom: 35px;
-  color: white;
-}
-.nector-starting-list {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 80%;
-}
-.material-icons {
-  margin-top: 15px;
-}
-.nector-starting-list li {
-  color: white;
-}
 .navigate-button {
   margin-bottom: 30px;
   padding: 0.55rem 2rem;
@@ -133,80 +117,80 @@
   opacity: 1;
 }
 /*
-.container .card span:nth-child(1) {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(to right, transparent, #1779ff);
-  animation: animate1 2s linear infinite;
-}
-
-@keyframes animate1 {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateY(-100%);
-  }
-}
-
-.container .card span:nth-child(2) {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 3px;
-  height: 100%;
-  background: linear-gradient(to bottom, transparent, #1779ff);
-  animation: animate2 1s linear infinite;
-}
-
-@keyframes animate2 {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(-100%);
-  }
-}
-
-.container .card span:nth-child(3) {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(to left, transparent, #1779ff);
-  animation: animate3 2s linear infinite;
-}
-
-@keyframes animate3 {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-.container .card span:nth-child(4) {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3px;
-  height: 100%;
-  background: linear-gradient(to top, transparent, #1779ff);
-  animation: animate4 2s linear infinite;
-  animation-delay: 1s;
-}
-
-@keyframes animate4 {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(-100%);
-  }
-}
-*/
+ .container .card span:nth-child(1) {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 3px;
+   background: linear-gradient(to right, transparent, #1779ff);
+   animation: animate1 2s linear infinite;
+ }
+ 
+ @keyframes animate1 {
+   0% {
+     transform: translateX(-100%);
+   }
+   100% {
+     transform: translateY(-100%);
+   }
+ }
+ 
+ .container .card span:nth-child(2) {
+   position: absolute;
+   top: 0;
+   right: 0;
+   width: 3px;
+   height: 100%;
+   background: linear-gradient(to bottom, transparent, #1779ff);
+   animation: animate2 1s linear infinite;
+ }
+ 
+ @keyframes animate2 {
+   0% {
+     transform: translateY(-100%);
+   }
+   100% {
+     transform: translateY(-100%);
+   }
+ }
+ 
+ .container .card span:nth-child(3) {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 3px;
+   background: linear-gradient(to left, transparent, #1779ff);
+   animation: animate3 2s linear infinite;
+ }
+ 
+ @keyframes animate3 {
+   0% {
+     transform: translateX(100%);
+   }
+   100% {
+     transform: translateX(-100%);
+   }
+ }
+ 
+ .container .card span:nth-child(4) {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 3px;
+   height: 100%;
+   background: linear-gradient(to top, transparent, #1779ff);
+   animation: animate4 2s linear infinite;
+   animation-delay: 1s;
+ }
+ 
+ @keyframes animate4 {
+   0% {
+     transform: translateY(100%);
+   }
+   100% {
+     transform: translateY(-100%);
+   }
+ }
+ */

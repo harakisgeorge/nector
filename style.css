@@ -10,6 +10,12 @@
   padding-bottom: 5rem;
 }
 
+h1 {
+  display: flex;
+  justify-content: center;
+  color: white;
+  padding-bottom: 1rem;
+}
 .buttons-group {
   display: flex;
   justify-content: center;

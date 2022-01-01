@@ -3,7 +3,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 120vh;
 }
 
 .navigate-button {
@@ -20,6 +19,15 @@
 .container h2 {
   color: white;
   margin-bottom: 70px;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  width: 80%;
+  color: white;
 }
 
 #square1 {

@@ -15,19 +15,152 @@
    </div>
    <div class="container">
       
-      <h2>Hardware</h2>
+      <h2>Code file structure</h2>
             <ul>
-               <li>
-                  To be updated later
-               </li>
-               <li>
-                  
-               </li>
-               <li>
-                  
-              </li>
+               <ul class="sublist">
+                  <li class="sublist-left">Chunk collector </li>
+                  <li class="sublist-arrow">-> </li>
+                  <li class="sublist-right">nector-logger.h || chunk-collector.h</li>
+               </ul>
+               
+               <ul class="sublist">
+                  <li class="sublist-left">Chunk receiver </li>
+                  <li class="sublist-arrow"> -> </li>
+                  <li class="sublist-right">nector-logger.h || chunk-receiver.h </li>
+               </ul>
+               <ul class="sublist">
+                  <li class="sublist-left">Chunk sender  </li>
+                  <li class="sublist-arrow">-> </li>
+                  <li class="sublist-right">nector-logger.h || chunk-sender.h </li>
+               </ul>
+               <ul class="sublist">
+                  <li class="sublist-left">Nector chunk </li>
+                  <li class="sublist-arrow">-> </li>
+                  <li class="sublist-right">nector-logger.h || nector-file.h || 
+                     nector-chunk.h || nector-slice.h </li>
+               </ul>
+               <ul class="sublist">
+                  <li class="sublist-left">Nector client </li>
+                  <li class="sublist-arrow">-> </li>
+                  <li class="sublist-right">nector-logger.h || nector-client.h ||
+                     nector-clientmanager.h || nector-peer.h ||
+                     nector-peerdirectory.h || nector-encoder.h ||
+                     nector-decoder.h </li>
+               </ul>
+               <ul class="sublist">
+                  <li class="sublist-left">Nector clientmanager </li>
+                  <li class="sublist-arrow">-> </li>
+                  <li class="sublist-right">nector-logger.h || nector-clientmanager.h ||
+                     nector-client.h || nector-peer.h ||
+                     nector-encoder.h || nector-decoder.h ||
+                               nector-messages.h </li>
+               </ul>
+               <ul class="sublist">
+                  <li class="sublist-left"> nector-decoder</li>
+                  <li class="sublist-arrow">-> </li>
+                  <li class="sublist-right">nector-decoder.h  ||  nector-encoder.h  || 
+                     nector-logger.h  ||   nector-hash.h </li>
+               </ul>
+               <ul class="sublist">
+                  <li class="sublist-left">nector-encoder </li>
+                  <li class="sublist-arrow">-> </li>
+                  <li class="sublist-right">nector-logger.h  ||  nector-encoder.h </li>
+               </ul>
+               <ul class="sublist">
+                  <li class="sublist-left">nector-file  </li>
+                  <li class="sublist-arrow">-> </li>
+                  <li class="sublist-right">nector-file.h </li>
+               </ul>
+               <ul class="sublist">
+                  <li class="sublist-left">nector-filedirectory </li>
+                  <li class="sublist-arrow">-> </li>
+                  <li class="sublist-right">nector-logger.h  ||  tools.h </li>
+               </ul>
+               <ul class="sublist">
+                  <li class="sublist-left"> nector-hash </li>
+                  <li class="sublist-arrow">-> </li>
+                  <li class="sublist-right">nector-hash.h </li>
+               </ul>
+               <ul class="sublist">
+                  <li class="sublist-left">nector-logger  </li>
+                  <li class="sublist-arrow">-> </li>
+                  <li class="sublist-right"> nector-logger.h</li>
+               </ul>
+               <ul class="sublist">
+                  <li class="sublist-left">nector-messages  </li>
+                  <li class="sublist-arrow">-> </li>
+                  <li class="sublist-right"> nector-messages.h  ||  tools.h</li>
+               </ul>
+               <ul class="sublist">
+                  <li class="sublist-left">nector-peer </li>
+                  <li class="sublist-arrow">-> </li>
+                  <li class="sublist-right">nector-logger.h  ||  nector-client.h  || 
+                     nector-peer.h  ||   nector-messages.h </li>
+               </ul>
+               <ul class="sublist">
+                  <li class="sublist-left">nector-peersession </li>
+                  <li class="sublist-arrow">-> </li>
+                  <li class="sublist-right">nector-logger.h  ||  nector-client.h  || 
+                     nector-peer.h  ||    nector-messages.h </li>
+               </ul>
+               <ul class="sublist">
+                  <li class="sublist-left">nector-receive  </li>
+                  <li class="sublist-arrow">-> </li>
+                  <li class="sublist-right">breakdetector.h  ||  nector-logger.h  || 
+                     nector-client.h  ||  nector-clientmanager.h  || 
+                               nector-decoder.h  ||  nector-encoder.h  || 
+                               sharememory.h </li>
+               </ul>
+
+               <ul class="sublist">
+                  <li class="sublist-left">nector-send  </li>
+                  <li class="sublist-arrow">-> </li>
+                  <li class="sublist-right">breakdetector.h  ||  nector-logger.h  || 
+                     nector-client.h  ||  nector-clientmanager.h
+                               nector-encoder.h  ||  sharememory.h </li>
+               </ul>
+
+               <ul class="sublist">
+                  <li class="sublist-left">nector-slice   </li>
+                  <li class="sublist-arrow">-> </li>
+                  <li class="sublist-right">nector-slice.h </li>
+               </ul>
+
+               <ul class="sublist">
+                  <li class="sublist-left">nector-tracker </li>
+                  <li class="sublist-arrow">-> </li>
+                  <li class="sublist-right"> tools.h, breakdetector.h  ||  nector-logger.h  || 
+                     nector-messages.h  ||  nector-peerdirectory.h  || 
+                               nector-filedirectory.h</li>
+               </ul>
+               <ul class="sublist">
+                  <li class="sublist-left">shm-push </li>
+                  <li class="sublist-arrow">-> </li>
+                  <li class="sublist-right"> breakdetector.h  ||  tools.h, sharedmemory.h  || 
+                     nector-logger.h  ||  nector-hash.h</li>
+               </ul>
+
+
+
+               <ul class="sublist">
+                  <li class="sublist-left">tcp-receive </li>
+                  <li class="sublist-arrow">-> </li>
+                  <li class="sublist-right"> tools.h  ||  breakdetector.h  ||  nector-logger.h  || 
+                     tcp-file.h  ||  sharememory.h</li>
+               </ul>
+
+
+
+
+               <ul class="sublist">
+                  <li class="sublist-left">tcp-send</li>
+                  <li class="sublist-arrow">-> </li>
+                  <li class="sublist-right"> tools.h  ||  breakdetector.h  ||  nector-logger.h  || 
+                     tcp-file.h  ||  sharememory.h
+           </li>
+               </ul>
          
-      </ul>
+           </ul>
    </div>
 </body>
 </html>

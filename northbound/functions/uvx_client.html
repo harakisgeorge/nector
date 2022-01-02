@@ -205,6 +205,154 @@
          <li>Function 1: iterate and stop all sessions</li>
 
       </ul>
+
+      <ul>
+         <li class="list-title">nector-clientmanager.cc</li>
+         <li class="underline2"></li>
+
+         <li class="function-name"><u>Constructor ( NECTORClientManager )</u></li>
+         <li>Parameters: trackerSocketendpoint, filterAllow, 
+            filterIgnore, trackerRetryDelay, firstClient and more ????
+         </li>
+         <li>Functionality 1: Create netlink socket </li>
+         <li>Functionality 2: Connect to tracker </li>
+         <li>Functionality 3: Add first client if available </li>
+         <li>Functionality 4: Start main loop thread </li>
+
+         <li class="function-name"><u>Destructor ( NECTORClientManager )</u></li>
+      
+         <li>Functionality 1: stop all client (its a loop)</li>
+         <li>Functionality 2: stop the IO service</li>
+         <li>Functionality 3: wait for thread to finish</li>
+
+
+         <li class="function-name"><u>Connect to tracker ( connectToTracker )</u></li>
+         <li>Functionality 1: declare a recursive mutex</li>
+         <li>Functionality 2: check if its already connected to tracker</li>
+         <li>Functionality 3: connecting to tracker using socket endpoint</li>
+
+
+         
+         <li class="function-name"><u>Reconnect to tracker ( reconnectToTracker )</u></li>
+         <li>Functionality 1: declare a recursive mutex</li>
+         <li>Functionality 2: DISCONNET by cancelling and closing the 
+            tracker socket.
+         </li>
+         <li>Functionality 3: connect again to tracker</li>
+
+         <li class="function-name"><u>Tracker connect handler( trackerConnectHandler )</u></li>
+         <li>Parameter: error</li>
+         <li>Functionality 1: declare a recursive mutex</li>
+         <li>Functionality 2: check if connected to tracker</li>
+         <li>Functionality 3: Receive response on tracker connection
+            read buffer and handle response from tracker
+         </li>
+         <li>Functionality 4: Register clients (iterate through all and 
+            register)
+         </li>
+         <li>Functionality 5: Connection failed try again timeout (handleRetryDelay)
+         </li>
+
+
+         <li class="function-name"><u>Handle tracker retry timer 
+            ( handleTrackerRetryTimer )</u></li>
+         <li>Functionality 1: declare a recursive mutex</li>
+         <li>Functionality 2: if there is no error with operation connect to tracker </li>
+
+
+         <li class="function-name"><u>Handle address change( handleAddressChange )</u></li>
+         <li>Parameter: address, removed (boolean)</li>
+         <li>Functionality 1: ?????????</li>
+         <li>Functionality 2: ?????????</li>
+
+         <li class="function-name"><u>Handle netlink message( handleNetlinkMessage )</u></li>
+         <li>Parameter: netlinkMessage</li>
+         <li>Functionality 1: Handle it for IPV4 ?????? </li>
+         <li>Functionality 2: Handle it for IPV6 ?????? </li>
+         <li>Functionality 3: ????????? </li>
+
+
+         <li class="function-name"><u>Handle netlink input( handleNetlinkRead )</u></li>
+         <li>Parameter: error, bytesrecived (size_t)</li>
+         <li>Functionality 1: Try to get Netlink message. </li>
+         <li>Functionality 2: Try to get more data, unless cancelled. </li>
+         <li>Functionality 3: ????????? </li>
+
+         <li class="function-name"><u>Add client( addClient )</u></li>
+         <li>Parameter: client</li>
+         <li>Functionality 1: declare a recursive mutex</li>
+         <li>Functionality 2: push client and set client in 
+            client manager. and register the client in the tracker.
+         </li>
+
+
+         <li class="function-name"><u>Update client( updateClient )</u></li>
+         <li>Parameter: client</li>
+         <li>Functionality 1: declare a recursive mutex</li>
+         <li>Functionality 2: Register the client at tracker
+         </li>
+
+         <li class="function-name"><u>Remove client( removeClient )</u></li>
+         <li>Parameter: client</li>
+         <li>Functionality 1: declare a recursive mutex</li>
+         <li>Functionality 2: remove client from the array
+         </li>
+         <li>Functionality 3: set clients pointer to null
+            and deregister at tracker
+         </li>
+
+         <li class="function-name"><u>Send result of sending
+            request to tracker( requestSentToTracker )</u></li>
+         <li>Parameter: error, mmptr</li>
+         <li>Functionality 1: declare a recursive mutex</li>
+         <li>Functionality 2: if there is error failed to sending
+            message to tracker, try to reconnect.
+         </li>
+
+         <li class="function-name"><u> Send request to tracker (sendRequestToTracker)</u></li>
+         <li>Parameter: command (serializable) </li>
+         <li>Functionality 1: ?????????????????</li>
+
+         <li class="function-name"><u> Handle incoming data (handleResponseFromTracker)</u></li>
+         <li>Parameter: error, bytesreceived </li>
+         <li>Functionality 1: declare mutex <li>
+         <li>Functionality 2: Shutdown, if bytes received are 0
+            that means try to reconnect with tracker<li>
+         <li>Functionality 3: shutdown if the awaiting xml is not false
+            but try to reconnect to tracker. Deretter read the message
+            from xml<li>
+         <li>Functionality 4:Decode the mssage , handle message <li>
+         <li>Functionality 5:Read next message's length <li>
+
+            <li class="function-name"><u>Handle peer information from tracker
+                (handleClientTrackerRequest)</u></li>
+            <li>Parameter: nctr</li>
+            <li>Functionality 1: create a total status variable and continue
+               if status is okay.
+            </li>
+            <li>Functionality 2: Iterate through clients and check whether
+               they need to connect.
+            </li>
+            <li>Functionality 3: While iterating check whtether they do not
+               connect with themselves.
+            </li>
+            <li>Functionality 4: Finaly update the remote endpoints.
+            </li>
+
+            <li class="function-name"><u>Handle registration response from tracker
+               (handleTrackerResponse)</u></li>
+           <li>Parameter: ntr</li>
+           <li>Functionality 1: if ntr status is 0, then succeded else failed </li>
+      
+
+           
+           <li class="function-name"><u>Handle NECTORFile from tracker 
+            (NECTORFileMessage)</u></li>
+           <li>Parameter: ntr</li>
+           <li>Functionality 1: if ntr status is 0, then succeded else failed </li>
+      
+      
+         </ul>
    </div>
 </body>
 </html>

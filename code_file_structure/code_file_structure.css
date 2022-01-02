@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 .navigate-button {
   margin-bottom: 30px;
@@ -27,21 +26,24 @@ li {
   margin-bottom: 70px;
 }
 
-#square {
-  width: 130px;
-  height: 130px;
-  background: red;
-  text-align: center;
-}
-
-.diagram {
+/*exclusive code */
+.sublist {
   display: flex;
-  justify-content: center;
   align-items: center;
+  margin-top: 50px;
+  width: 1268px;
 }
 
-#link {
-  background-color: cornsilk;
-  height: 5px;
-  width: 200px;
+.sublist-left {
+  border: 1px solid;
+  padding: 20px;
+  font-size: 2rem;
+}
+
+.sublist-arrow {
+  font-size: 3rem;
+}
+
+.sublist-right {
+  font-size: 2rem;
 }

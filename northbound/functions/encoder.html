@@ -63,6 +63,250 @@
             NECTOR file contains: File name, Nector file index, chunk hashes (verification), number of chunks, chunk length, last chunk length, creation time, expiration time, nector File-hash
          </li>
       </ul>
+
+      <div class="content">
+         <svg id="more-arrows">
+           <polygon class="arrow-top" points="37.6,27.9 1.8,1.3 3.3,0 37.6,25.3 71.9,0 73.7,1.3 "/>
+           <polygon class="arrow-middle" points="37.6,45.8 0.8,18.7 4.4,16.4 37.6,41.2 71.2,16.4 74.5,18.7 "/>
+           <polygon class="arrow-bottom" points="37.6,64 0,36.1 5.1,32.8 37.6,56.8 70.4,32.8 75.5,36.1 "/>
+         </svg>
+       </div>
+   
+       <h2 class="title">NECTOR Encoder - Code</h2>
+       <ul>
+         <li class="list-title">nector-chunk.cc</li>
+         <li class="underline2"></li>
+         
+         <li class="function-name"><u>Constructor (NECTORChunk)</u></li>
+         <li>Parameters:chunkSeqNumber, header, header_size,payload,payloadSize,
+            chunk id, IsObtained from same convoy, delete payload </li>
+         <li>Function 1: initialize some starting flags, sizes, indexes etc</li>
+
+
+         <li class="function-name"><u>Another constructor (NECTORChunk)</u></li>
+         <li>Parameters:type, nectorFileHash, payload (string), payloadSize,
+            chunkSeqNumber, deletePayloadInDestructor, deleteSlicesinDestructor </li>
+         <li>Function 1: initialize some starting flags, sizes, indexes etc</li>
+         <li>Function 2: switch statement to determine header
+            (common header, uncoded chunkheader, coded chunk)
+         </li>
+         <li>Function 3: initiazing some values to be set by prepareSlices()</li>
+
+
+         <li class="function-name"><u>Destructor (NECTORChunk)</u></li>
+         <li> </li>
+         <li>Function 1: internal_cleanup</li>
+
+
+
+
+
+         <li class="function-name"><u>Clean up (internal clean up)</u></li>
+         <li>Function 1: initialize some starting flags, sizes, indexes etc</li>
+         <li>Function 2: resetPayload()</li>
+         <li>Function 3: initialize the iterator and iterate through 
+            the slizes and delete them 
+         </li>
+         <li>Function 4: Reset the network encoding and decoding. </li>
+
+         
+         <li class="function-name"><u>Clean up (reset)</u></li>
+         <li >Function 1: Run internal_cleanup</li>
+         <li >Function 2: reset headers  and other flags</li>
+
+         <li class="function-name"><u>Insert slice(insertSlice)</u></li>
+         <li>Parameters: nectorSlice </li>
+         <li>Function 1: If coded slice insert it as coded slice
+            else insert it as uncoded slice.
+         </li>
+
+
+         <li class="function-name"><u>Insert uncoded slice(insertUncodedSlice)</u></li>
+         <li>Parameters: nectorSlice </li>
+         <li>Function 1: check if nector's type is ncht_uncoded.</li>
+         <li>Function 2: get the slice iD.</li>
+         <li>Function 3: Iterate through it and try to find the slice.</li>
+         <li>Function 4: In the iteration run a command to find the
+            slice and if alreayd there delete the old one
+          </li>
+          <li>Finally add the slice.</li>
+
+          
+         <li class="function-name"><u> Insert coded slice
+            (insertCodedSlice)</u></li>
+         <li>Parameters: nectorSlice </li>
+         <li>Function 1:Do some starting checks ????</li>
+         <li>Function 2: Add slice.</li>
+         <li>???????????????????????????</li>
+
+
+         <li class="function-name"><u> Get decoded data 
+            (getDecodedData)</u></li>
+         <li>Parameters: data, size </li>
+         <li>Function 1: Do some starting checks ????</li>
+         <li>Function 2: Get data for buffer and its size</li>
+
+
+         <li class="function-name"><u>  Reassemble payload of coded slices 
+            (reassemblePayloadFromCodedSlices)</u></li>
+         <li>Parameters: data, size, srcOffSet </li>
+         <li>Function 1: Initialize some starting data, null pointer and original size</li>
+         <li>Function 2: run getDecodedData and check if they are not null</li>
+         <li>Function 3: check the offset ranges and then memcopythe data</li>
+      
+
+         <li class="function-name"><u>   Check sequence of uncoded 
+            slices (checkUncodedSlicesSequence)</u></li>
+         <li>Parameters: total Chunks Size </li>
+         <li>Function 1:Check sequence of slices 
+            // Check that there is a sequence of slices (no gaps) </li>
+         <li>Iterate through and find out if the sequence is correct??</li>
+
+         
+         <li class="function-name"><u>Reassemble payload of uncoded slices 
+            (reassemblePayloadFromUncodedSlices) </u></li>
+         <li>Parameters: data, size, srcOffset </li>
+         <li>Function 1: initilize data , offset variables</li>
+         <li>Function 2: Do a loop through the slices and 
+            try to put the data into the memory in a sequence
+         </li>
+         <li>Function 3: Do some final checks</li>
+
+
+
+
+         <li class="function-name"><u>Get first uncoded slice 
+            (getFirstUncodedSlice) </u></li>
+         <li>Function 1: check if its not empty and return the first slice</li>
+
+
+      
+         <li class="function-name"><u>Get slice type  
+            (expectedSliceType) </u></li>
+         <li>Function 1: return the slice type</li>
+
+
+         <li class="function-name"><u>Prepare decoding of slices  
+            (prepareDecodingSlices) </u></li>
+         <li>Parameters: scheme</li>
+         <li>Function 1: ?????????</li>
+
+
+         
+         <li class="function-name"><u>Output operator  
+            (prepareDecodingSlices) </u></li>
+         <li>Parameters: OS stream OS, nector Chunk</li>
+         <li>Function 1: Switch statement with headers</li>
+         <li>Function 2: Three headers: NCHT_UNKNOWN,
+            NCHT_UNCODED, NCHT_CODED (first header is encoder 
+            and decoder)</li>
+         <li>Function 3: Print file,payload etc</li>
+
+
+         <li class="function-name"><u>get type (getType) </u></li>
+         <li>Function 1: return header type</li>
+
+         <li class="function-name"><u>get total size (getTotalSize) </u></li>
+         <li>Function 1: return header + payload size</li>
+
+         <li class="function-name"><u>get header size(getHeaderSize) </u></li>
+         <li>Function 1: return header size</li>
+
+         <li class="function-name"><u>get header data(getHeaderData) </u></li>
+         <li>Function 1: return header data</li>
+
+         <li class="function-name"><u>get payload size(getPayloadSize) </u></li>
+         <li>Function 1: return payload size</li>
+         
+         <li class="function-name"><u>get payload data(getPayloadData) </u></li>
+         <li>Function 1: return payload data</li>
+
+         <li class="function-name"><u>get payload data(getPayloadData) </u></li>
+         <li>Function 1: return payload data</li>
+
+         <li class="function-name"><u>get chunk sequence number(getChunkID) </u></li>
+         <li>Function 1: return chunk ID</li>
+
+
+         <li class="function-name"><u>Get slice size for uncoded slice
+            (getUncodedSlicePayloadSize) </u></li>
+         <li>Parameters: sliceNumber</li>
+         <li>Function 1: ?????? </li>
+
+         <li class="function-name"><u>Get slice count
+            (getSliceCount) </u></li>
+         <li>Function 1: get collector size </li>
+
+
+         <li class="function-name"><u>Examine header
+            (getUncodedSlicePayloadSize) </u></li>
+         <li>Parameters: data, datalength, headerSize</li>
+         <li>Function 1: Examine a NECTORChunkHeader in a data block. </li>
+         <li>Function 2: On success return NECTORChunkHeaderUnion pointer
+            and sets Header Size </li>
+         <li>????????</li>
+
+
+            <li class="function-name"><u> Initialise header
+               (initHeader) </u></li>
+            <li>Parameters: header pointer, headerSize</li>
+            <li>Function 1: memcopy the header basically ??</li>
+
+         <li class="function-name"><u>Initialise payload
+            (initPayload) </u></li>
+         <li>Parameters: data, size, deletePayloadInDestructor</li>
+         <li>Function 1: if payload is not null, reset payload</li>   
+         <li>Function 2: check if payload is really gone</li>   
+         <li>Function 3: delete payload in destructor and initialize
+            payload with data and payloadSize with size.
+         </li>   
+
+         
+         <li class="function-name"><u>Reset payload 
+            (resetPayload) </u></li>
+         <li>Function 1: Delete m_payload and pointers, and size</li>   
+    
+
+         <li class="function-name"><u>Prepare uncoded slices
+            (prepareUncodedSlices) </u></li>
+         <li>Parameters: numberOfSlices</li>
+         <li>Function 1: ????? Many calculations of slice sizes.????</li> 
+
+
+
+         
+         <li class="function-name"><u>Prepare coded slices
+            (prepareCodedSlices) </u></li>
+         <li>Parameters: slicesSettings</li>
+         <li>Function 1: ????? Many calculations of slice sizes.????</li> 
+
+
+         <li class="function-name"><u> Copy payload of uncoded slice 
+            (copyUncodedSlicePayload) </u></li>
+         <li>Parameters: payload, slizeSize, sliceNumber</li>
+         <li>Function 1: Position inside the slice payload</li> 
+         <li>Function 2:  Copy (part of) header</li> 
+         <li>Function 3: Position inside the chunk [header + payload</li> 
+         <li>Function 4: Begin writing payload data at this position</li> 
+         <li>Function 5: Move input position ahead</li> 
+         <li>Function 6: Copy payload</li> 
+
+         <li class="function-name"><u>  Request uncoded slice 
+            (requestUncodedSlice) </u></li>
+         <li>Parameters: requestedSliceNumber</li>
+         <li>Function 1: Get the right slice number</li> 
+         <li>Function 2: Generate the slice payload (from chunk header+payload)</li> 
+         <li>Function 3: Create slice</li> 
+
+
+         <li class="function-name"><u>  Request coded slice
+            (requestCodedSlice) </u></li>
+         <li>Parameters: requestedSliceNumber</li>
+         <li>Function 1:  Get the right slice number r</li> 
+         <li>Function 2: Generate the slice payload (from chunk header+payload)</li> 
+         <li>Function 3: Create slice</li> 
+
+      </ul>
    </div>
 </body>
 </html>

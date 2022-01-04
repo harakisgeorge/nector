@@ -326,7 +326,7 @@
 
             <li class="function-name"><u>Handle peer information from tracker
                 (handleClientTrackerRequest)</u></li>
-            <li>Parameter: nctr</li>
+            <li>Parameter: NectorClientTrackerRequest</li>
             <li>Functionality 1: create a total status variable and continue
                if status is okay.
             </li>
@@ -341,18 +341,55 @@
 
             <li class="function-name"><u>Handle registration response from tracker
                (handleTrackerResponse)</u></li>
-           <li>Parameter: ntr</li>
+           <li>Parameter: nectorTrackerResponse</li>
            <li>Functionality 1: if ntr status is 0, then succeded else failed </li>
       
 
-           
+
            <li class="function-name"><u>Handle NECTORFile from tracker 
             (NECTORFileMessage)</u></li>
            <li>Parameter: ntr</li>
            <li>Functionality 1: if ntr status is 0, then succeded else failed </li>
       
-      
-         </ul>
+
+           <li class="function-name"><u>Handle NECTORfile from tracker (handleFileMessage)</u></li>
+           <li>Parameter: nector file message</li>
+           <li>Functionality 1: initialize status and latest nector file. </li>
+           <li>Functionality 2: if latest nector file exists, then iterate 
+              through client files.
+           </li>
+           <li>Functionality 2: if latest nector file exists, then iterate 
+            through client files.
+         </li>
+         <li>Functionality 3: if client is not downloading and is not isExpired
+            then tell to the client about peers 
+         </li>
+         <li>Functionality 4: ???????????????</li>
+
+         <li class="function-name"><u>Register client at tracker (registerAtTracker)</u></li>
+         <li>Parameter: client, updateFileOnly</li>
+         <li>Functionality 1: Declare mutex </li>
+         <li>Functionality 2: if connected to tracker and there are peers present 
+            then send registration request.
+         </li>
+         <li>Functionality 3: if connected to tracker and there are peers present 
+            then send registration request.
+         </li>
+            Functionality 4: ?????????????????????
+
+         <li class="function-name"><u> Deregister client at tracker (deregisterAtTracker)</u></li>
+         <li>Parameter: client</li>
+         <li>Functionality 1: Declare mutex </li>
+         <li>Functionality 2: ??????  </li>
+
+
+         <li class="function-name"><u> Main loop (run)</u></li>
+         <li>Parameter: none</li>
+         <li>Functionality 1: Request IP address (header, message, length,flags etc) </li>
+         <li>Functionality 2: Receive IP addresses and change notifications </li>
+         <li>Different ways for different IP types ?????????/</li>
+      </ul>
+
    </div>
 </body>
 </html>

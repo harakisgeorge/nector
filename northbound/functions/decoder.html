@@ -59,6 +59,59 @@
           <h2 class="title">Decoder - Code</h2>
           <ul>
             
+            <li class="list-title">nector-encoder.cc</li>
+            <li class="underline2"></li>
+            
+            <li class="function-name"><u>Constructor (NECTORDecoder)</u></li>
+            <li>Parameters: encoder, downloads Directory, shared Memory Writer</li>
+            <li>Function 1: Nector file to null (ptr), deallocate memory to false, 
+                  decoding completed -> false.
+            </li>
+
+            <li class="function-name"><u>Destructor (NECTORDecoder)</u></li>
+            <li>Function 1: clean up</li>
+
+
+            <li class="function-name"><u> Clean up (internal_cleanup)</u></li>
+            <li>Parameters: encoder, downloads Directory, shared Memory Writer</li>
+            <li>Function 1: Clean up the encoder before disposing, deallocate 
+               memory , output data to null and the size to 0 
+            </li>
+            <li>Function 2: Destination file is open, and check for error</li>
+            <li>Function 3: Destination file name -> clear </li>
+
+
+            <li class="function-name"><u> Process new NECTORFile 
+                (processNewFile_stage1)</u></li>
+            <li>Parameters: nector File</li>
+            <li>Function 1: Internal cleanup.</li>
+            <li>Function 2: Extract file name, size of the file , and copy 
+               the file into the correct variable.
+            </li>
+            <li>Function 3: ???????? </li>
+
+
+            <li class="function-name"><u> Process new NECTORFile 
+               (processNewFile_stageNc)</u></li>
+           <li>Parameters: scheme, data string, size</li>
+           <li>Function 1: ??????????? </li>
+
+
+           <li class="function-name"><u> Process new NECTORFile 
+            (processNewFileToDownload)</u></li>
+           <li>Parameters: nector File</li>
+           <li>Function 1: mute </li>
+
+
+
+
+
+
+
+
+
+
+
             <li class="list-title">chunk-collector.cc</li>
             <li class="underline2"></li>
 

@@ -74,6 +74,180 @@
    
        <h2 class="title">NECTOR Encoder - Code</h2>
        <ul>
+
+         <li class="list-title">nector-encoder.cc</li>
+         <li class="underline2"></li>
+         
+         <li class="function-name"><u>Constructor (NECTOREncoder)</u></li>
+         <li>Parameters: number of chunks, code Chunks scheme </li>
+         <li>Function 1: Initizalise to null and 0 , pointers
+            to nectorfile, inputdata, decoder and to 0 
+            inputSize, nextChunkIndex, expirationTime</li>
+
+         <li class="function-name"><u>Destryuctor (NECTOREncoder)</u></li>
+         <li>Function 1: Declare a mutex and internal cleanup</li>
+
+         <li class="function-name"><u>again clean Up (cleanup)</u></li>
+         <li>Function 1: Declare a mutex and internal cleanup</li>
+
+         <li class="function-name"><u>Internal cleanup (internal_cleanup)</u></li>
+         <li>Function 1: Initialize inputdata pointer and input size</li>
+         <li>Function 2: if there is a nectorFile delete it and the 
+            pointer, close source file 
+         </li>
+
+         <li class="function-name"><u>Process new file from memory 
+            (processNewFile_stage1)</u></li>
+         <li>parameters: input Data, input Size, file Name, expiration Time</li>
+         <li>Function 1: Start with new file (initialize variables with
+            the parameters.
+         </li>
+         <li>Function 2: Initialize NECTOR File. (check for erros first) </li>
+
+
+         <li class="function-name"><u>Process new file from memory 
+            (processNewFile_stage1)</u></li>
+         <li>parameters: input Data, input Size, file Name, expiration Time</li>
+         <li>Function 1: Clean-up current resources</li>
+         <li>Function 2: Start with new file</li>
+
+         <li class="function-name"><u>Process new file from disk 
+            (processNewFileFromDisk)</u></li>
+         <li>parameters: file Name, expiration Time </li>
+         <li>Function 1: mutex</li>
+         <li>Function 2: Internal clean up first</li>
+         <li>Function 3:  Start with new file, try to open the source file </li>
+         <li>Function 4:  if its open then process the new file and debug </li>
+
+         <li class="function-name"><u>Process new file from NECTORDecoder
+            (processNewFileFromDecoder)</u></li>
+         <li>parameters: decoder </li>
+         <li>Function 1: mutex</li>
+         <li>Function 2: internal cleanup</li>
+         <li>Function 3: Initizalize some variables (decoder, nectorfile,
+            inputData, input Size, expiration time, number of chunks
+         </li>
+
+
+         <li class="function-name"><u>Get pointer to NECTORFile
+            (getNectorFile)</u></li>
+         <li>parameters: decoder </li>
+         <li>Function 1: mutex</li>
+         <li>Function 1: mutex</li>
+
+         <li class="function-name"><u>Get pointer to NECTORFile hash
+            (getNectorFileHash)</u></li>
+         <li>parameters: decoder </li>
+         <li>Function 1: return hash nector file</li>
+
+         <li class="function-name"><u>Get number of chunks
+            (getChunkCount)</u></li>
+         <li>parameters: decoder </li>
+         <li>Function 1: return number of chunks</li>
+
+
+         <li class="function-name"><u>Get pointer to chunk payload 
+            (getChunkPayload)</u></li>
+         <li>parameters: chunk Number, pointer, size </li>
+         <li>Function 1: if there is input data then ,
+            set the size and the pointer to the nector file.
+         </li>
+
+         <li class="function-name"><u>Check whether chunk from collector is good 
+            (chunkIsGood)</u></li>
+         <li>parameters: chunk Iterator, iterator, chunk reception status </li>
+         <li>Function 1: ???????????????????</li>
+
+
+         <li class="function-name"><u>Request uncoded chunk, get next chunk which
+            is not already set in chunk Reception status. 
+            (requestUncodedChunk)</u></li>
+         <li>parameters: receiver In same Convoy boolean, chunk reception 
+            status </li>
+         <li>Function 1: mutex</li>
+         <li>Function 2: is complete file available, then set next chunk
+            index to the next chunk.</li>
+         <li>Function 3: set m_NextChunkIndex to next chunk (make
+            some check in the loop that follows)
+         </li>
+         <li>Function 4: check for error
+             Uncoded Chunk did not find a new chunk.</li>
+         <li>Function 5: Finally initialize variables such as payload
+            and payload Size and finally "generated nector chunk" .</li>
+         <li>Second part of the function:</li>
+         <li>Function 1: This part handles the parts of the 
+            file that are available from the decoder.
+         </li>
+         <li>Function 2: check if the nector file is null first and then lock the decoder</li>
+         <li>Function 3: Before selection: check log</li>
+         <li>Function 4: m_Chunk Map Iterator before selection</li>
+         <li>Function 5: ??????????????????????</li>
+
+
+         <li class="function-name"><u> Request coded chunk 
+            (requestCodedChunk)</u></li>
+         <li>parameters: receiver In Same Convoy boolean </li>
+         <li>Function 1: mutex and check if there is input data file.</li>
+         <li>Function 2: generate packet from encoder.</li>
+         <li>Function 3: check if there is payload and if there is 
+            then do a memory copy of it.</li>
+         <li>Function 4: Finally, create the new chunk using
+            new NECTORchunk with several parameters and check if it is 
+            not null. </li>
+
+
+            <li class="function-name"><u> Generate slices for chunk 
+               (prepareSlices)</u></li>
+            <li>parameters: nector Chunk, slices Settings </li>
+            <li>Function 1: Check whether its a chunk that will
+               provide coded slice or uncoded and prepare them</li>
+
+
+         <li class="function-name"><u> Request slice 
+            (requestSlice)</u></li>
+         <li>parameters: nector Chunk, requested slice number </li>
+         <li>Function 1: return requested Slice number</li>
+
+
+         <li class="function-name"><u>GET NC flags 
+            (calcFlagForNectorFile)</u></li>
+         <li>Function 1: return NC flags (called chunkNC)</li>
+
+
+         <li class="function-name"><u> Generate NECTOR File 
+            (generateNECTORFile)</u></li>
+         <li>Function 1: Calculate chunk sizes (otherChunkSize,
+            chunkCount, last Chunk Size)</li>
+         <li>Function 2: Initialise Nector File (time, 
+            nector File size, file Name size)
+         </li>
+         <li>Function 3: Assert that the settings are useful</li>
+         <li>Function 4: Initialise header ( nector file string,
+            version, flags, file_size, chunk_count, last chunk size,
+            other chunk size, creation time 
+         </li>
+
+         <li>Function 5: Initialise file name</li>
+         <li>Function 6: Calculate chunk hashes and calulate 
+            file hash.
+         </li>
+         <li>Function 7: finally print a log.</li>
+
+
+         <li class="function-name"><u>Initialize network coding for chunks 
+            (initAndFillNC)</u></li>
+         <li>Function 1: Find number of chunks,settings, generation size</li>
+         <li>Function 2: Filling up all source chunks to NC,
+            pointer, size, get Chunk Payload Size</li>
+         <li>Function 3: Encoder - > add Packet (pointer,size) </li>
+
+
+
+
+
+
+
+
          <li class="list-title">nector-chunk.cc</li>
          <li class="underline2"></li>
          

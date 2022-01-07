@@ -246,6 +246,108 @@
 
 
 
+         <li class="list-title">nector-file.cc</li>
+         <li class="underline2"></li>
+         
+         <li class="function-name"><u>Duplicate nectorfile (DuplicateNECTORFile)</u></li>
+         <li>Parameters: nectorFile </li>
+         <li>Function 1: set nectorFile size and create a new File
+            based on the newFile and check if its null and if not
+            copy it to memoery
+         </li>
+
+
+         <li class="function-name"><u>Delete nector file (DeleteNECTORFile)</u></li>
+         <li>Parameters: nectorFile </li>
+         <li>Function 1: delete the pointer to the file in the parameter
+         </li>
+
+
+         <li class="function-name"><u>Get hash (GetHash)</u></li>
+         <li>Parameters: nectorFile </li>
+         <li>Function 1: return the hash of the nector file.
+         </li>
+
+         <li class="function-name"><u>Extract file name  (GetFileName)</u></li>
+         <li>Parameters: nectorFile </li>
+         <li>Function 1: calculate filename size. </li>
+         <li>Function 2: create a new file name variable. </li>
+         <li>Function 3: strncpy and return the filename </li>
+
+         <li class="function-name"><u>Get  creation time of NECTORFile
+             (GetCreationTime)</u></li>
+         <li>Parameters: nectorFile </li>
+         <li>Function 1: return creation time of nector file</li>
+
+         <li class="function-name"><u>Get absolute expiration time of NECTORFile
+            (GetExpirationTime)</u></li>
+        <li>Parameters: nectorFile </li>
+        <li>Function 1: return expiration time of nector file.</li>
+
+        <li class="function-name"><u> Get size of NECTORFile
+         (GetNECTORFileSize)</u></li>
+        <li>Parameters: nectorFile </li>
+        <li>Function 1: return size of nector file.</li>
+
+        <li class="function-name"><u>Get size of payload file
+         (GetPayloadFileSize)</u></li>
+        <li>Parameters: nectorFile </li>
+        <li>Function 1: return payload file size.</li>
+
+        <li class="function-name"><u>Get chunk size from NECTORFile
+         (GetChunkPayloadSize)</u></li>
+        <li>Parameters: nectorFile, chunk Number </li>
+        <li>Function 1: some checks for size i guess</li>
+        <li>Function 2: ??????????</li>
+
+        <li class="function-name"><u> Get chunk count
+         (GetChunkPayloadSize)</u></li>
+        <li>Parameters: nectorFile</li>
+        <li>Function 1: reutrn ntohs(nectorfile->chunk_count)</li>
+
+
+        <li class="function-name"><u>Calculate size of NECTORFile
+         (CalculateNECTORFileSize)</u></li>
+        <li>Parameters: fileName size, number of chunks </li>
+        <li>Function 1: set nector File size, which is the total 
+           of sizeof(nectorFile) and sizeof(nectorHash) * number of chunks
+        </li>
+        <li>Function 2: return th nector File size</li>
+
+        <li class="function-name"><u>Get chunk hash 
+         (GetChunkHash)</u></li>
+        <li>Parameters: nector File, chunk Number </li>
+        <li>Function 1: declare a hash array, by casting to a 
+           nector Hash, and taking in the size
+        </li>
+        <li>Function 2: check whether the sizes match and return
+           the pointer to the hash Array.
+        </li>
+
+        <li class="function-name"><u>Output operator (operator)</u></li>
+        <li>Parameters: nector File, chunk Number </li>
+        <li>Function 1: declare a hash array, by casting to a 
+           nector Hash, and taking in the size
+        </li>
+        <li>Function 2: check whether the sizes match and return
+           the pointer to the hash Array.
+        </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
          <li class="list-title">nector-chunk.cc</li>

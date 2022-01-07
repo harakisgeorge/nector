@@ -59,7 +59,7 @@
           <h2 class="title">Decoder - Code</h2>
           <ul>
             
-            <li class="list-title">nector-encoder.cc</li>
+            <li class="list-title">nector-decoder.cc</li>
             <li class="underline2"></li>
             
             <li class="function-name"><u>Constructor (NECTORDecoder)</u></li>
@@ -100,11 +100,138 @@
            <li class="function-name"><u> Process new NECTORFile 
             (processNewFileToDownload)</u></li>
            <li>Parameters: nector File</li>
-           <li>Function 1: mute </li>
+           <li>Function 1: mutex and assert that it is nector File. </li>
+           <li>Function 2: process new file -> coding scheme, output data
+              , size </li>
+
+
+           <li class="function-name"><u> Process new NECTORFile 
+            (processNewFileToMemory)</u></li>
+           <li>Parameters: nector File</li>
+           <li>Function 1: mutex  </li>
+           <li>Function 2: process new file -> nector file
+              output size, output data, deallocate memory
+           </li>
+
+           <li class="function-name"><u> Process new NECTORFile
+            (processNewFileToDisk)</u></li>
+           <li>Parameters: nector File</li>
+           <li>Function 1: mutex  </li>
+           <li>Function 2: process new file (nector File) -> nector file
+              output size, output data, deallocate memory
+           </li>
+
+
+           <li class="function-name"><u> Get pointer to NECTORFile
+            (getNectorFile)</u></li>
+           <li>Function 1: mutex and return the nector file </li>
+       
+
+           <li class="function-name"><u> Get pointer to NECTORFile
+            (getNectorFile)</u></li>
+           <li>Function 1: mutex and return the nector file </li>
+
+           <li class="function-name"><u> Get pointer to NECTORFile
+            (getNectorFileHash)</u></li>
+           <li>Function 1: mutex and return the hash of the nector 
+              file </li>
+
+              
+           <li class="function-name"><u> Get chunk reception status
+            (getChunkReceptionStatus)</u></li>
+           <li>Function 1: mutex and return m_ChunkReceptionStatus </li>
+
+
+           <li class="function-name"><u>  Get pointer to chunk payload 
+            (getChunkPayload)</u></li>
+           <li>Parameters: chunk Number, pointer, size</li>
+           <li>Function 1: if there is output Data, and if its the 
+              correct chunk count then the size and the pointer to the 
+            output data </li>
+
+
+            <li class="function-name"><u>  Verify reassembled chunk
+               (verifyReassembledUncodedChunk)</u></li>
+            <li>Parameters: bector Chunk</li>
+            <li>Function 1: Check whether chunk's data matches with 
+               hash from the NECTORFile. </li>
+            <li>Function 2: If not, the chunk is reset -> 
+               need to collect slices again </li>
+
+            <li class="function-name"><u> Construct reassembled chunk
+               (constructReassembledChunk)</u></li>
+            <li>Parameters: nector Chunk, header, header Size, 
+               total chunk Size</li>
+            <li>Function 1: Reassemble:  </li>
+            <li>Function 2: copy the payload (char *), payload size</li>
+
+
+            <li class="function-name"><u> Decode reassembled chunk
+               (decodeReassembledChunk)</u></li>
+            <li>Parameters: nector Chunk, header, headerSize, 
+               total Chunk Size
+            </li>
+            <li>Function 1: Reassemble and copy header </li>
+            <li>Function 2: copy the payload (char *), payload size</li>
+            <li>Function: ??????????????????????????</li>
+
+            <li class="function-name"><u> Try to reassemble chunk from uncoded slices
+               (reassembleChunkFromUncodedSlices)</u></li>
+            <li>Parameters: nector Chunk</li>
+            <li>Function 1: Check the header, The chunk is not 
+               reassembled yet, so it is necessary 
+               to examine its slices.</li>
+            <li>Function 2: declare header size, and the header 
+               (examine nector chunk header from data) and check if 
+              its not null.</li>
+            <li>Function 3: Check sequences of slices, check at there 
+               are no gaps.
+            </li>
+            <li>Function 4: Check amount of payload, check that the 
+               expected total  chunk size is met.  </li>
+            <li>Function 5: Construct (depending on the header 
+               nch type) and verify. </li>
+
+            <li class="function-name"><u> Try to reassemble payload file 
+               from uncoded chunks
+               (reassemblePayloadFileFromUncodedChunks)</u></li>
+            <li>Function 1: check sequence of chunks , check that there 
+               are no gaps.
+            </li>
+            <li>Function 2: chunk Iterator must be of known type </li>
+
+
+
+            <li class="function-name"><u> Try to reassemble chunk from coded slices
+               (reassembleChunkFromCodedSlices)</u></li>
+            <li>Function 1: check sequence of chunks , check that there 
+               are no gaps.
+            </li>
+            <li>Function 2: ??????????????? </li>
+
+
+
+            <li class="function-name"><u> Try to reassemble payload file 
+               from coded chunks
+               (reassemblePayloadFileFromCodedChunks)</u></li>
+            <li>Function 1: check if the status of the decoder is finished
+            </li>
+
+
+            <li class="function-name"><u> Add slice (processSlice) </u></li>
+            <li>Parameters: nector Slice, remote Endpoint in same convoy</li>
+            <li>Function 1: mutex and check if file is already been decoded</li>
+            <li>Function 2: Add slice to chunk collector</li>
+            <li>Function 3: Check whether chunk reassembly is 
+               possible now. </li>
+            <li>Function 4: Uncoded slices (reassembleChunkFromUncodedSlices)</li>
+            <li>Function 5: Coded slices (reassembleChunkFromCodedSlices)</li>
+            <li>Function 6: Coded slices (reassembleChunkFromCodedSlices)</li>
 
 
 
 
+            
 
 
 

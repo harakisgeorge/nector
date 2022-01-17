@@ -48,23 +48,41 @@ performing NC decoding if required. It sends received chunks to the NECTOR clien
 
     <h2 class="title">UVX - NECTOR Client - Code</h2>
     <ul>
-      <li class="list-title">chunk-receiver.cc</li>
-      <li class="underline2"></li>
+      <div class="list" id="">
+         <div class="list-title">
+            <div>
+               <li >chunk-receiver.cc</li>
+               <li class="underline2"></li>
+            </div>
+            <button type="button" class="list-btn">
+               <span class="plus-icon">
+               <i class="far fa-plus-square"></i>
+               </span>
+               <span class="minus-icon">
+               <i class="far fa-minus-square"></i>
+               </span>
+            </button>
+         </div>
+         <div class="list-text">
+            <li class="underline2"></li>
 
-      <li class="function-name"><u>Constructor ( ChunkReceiver )</u></li>
-      <li>Parameters: decoder (NECTOR decoder) </li>
-      
-      <li class="function-name"><u>Destructor ( ChunkReceiver )</u></li>
-      <li>Function 1: reset </li>
-     
-      <li class="function-name"><u>Destructor ( reset )</u></li>
+            <li class="function-name"><u>Constructor ( ChunkReceiver )</u></li>
+            <li>Parameters: decoder (NECTOR decoder) </li>
+            
+            <li class="function-name"><u>Destructor ( ChunkReceiver )</u></li>
+            <li>Function 1: reset </li>
+         
+            <li class="function-name"><u>Destructor ( reset )</u></li>
 
-      <li class="function-name"><u> Construct slice from buffer ( makeSliceFromBuffer )</u></li>
-      <li>Parameters: buffer, bufferSize, remote Endpoint in same convoy</li>
-      <li>Function 1: Create a new slice from the buffer</li>
-      <li>Function 2: If slice not null, send it to the decoder
-          to process it, else bytes not a valid slice.</li>
+            <li class="function-name"><u> Construct slice from buffer ( makeSliceFromBuffer )</u></li>
+            <li>Parameters: buffer, bufferSize, remote Endpoint in same convoy</li>
+            <li>Function 1: Create a new slice from the buffer</li>
+            <li>Function 2: If slice not null, send it to the decoder
+               to process it, else bytes not a valid slice.</li>
+         </div>
 
    </div>
+   <script src="functions.js" ></script>
+
 </body>
 </html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="../../index.css">
+   <link rel="stylesheet" href="functions.css">
+
+</head>
+<body>
+   <div class="container">
+      <div class="navigate-button">
+         <a href="../../index.html" >Back to homepage</a>
+         <a href="../northbound_options.html" >Back to Northbound menu</a>
+
+      </div>
+      <h2 class="title">Northbound script</h2>
+      <div class="center-container">
+        <p> –  </p>
+         <ul>
+            <li>
+               Declare three variables: pc1Host and pc2Host (ipv6 address) and pcUser (nornetpp).
+            </li>
+            <li>
+               Declare ipcs (ipc1, ipc2) have three different IP addresses.
+            </li>
+            <li>
+               Declare Odroids (router1Host, 2 ,3) have three different IP addresses.
+               And also a routerUser with nornetpp.
+            </li>
+         </ul>
+         <ul>
+            <li>Declaring functions</li>
+            
+            <li class="function-name"><u>Get variable names (getVariableNames)</u></li>
+            <li>Function 1: return a long string with variable names (e.g. P2LeftBandwidth),
+                TimeStamp, IPC1IPs etc. )
+            </li>
+
+            <li class="function-name"><u>Get variable settings (getVariableSettings)</u></li>
+            <li>Parameters: (
+               now, 
+               ipc1IPs, ipc2IPs, 
+               fileSize, expiration, measurementType,
+               chunks, chunksNC,
+               p1Slices, p1SlicesNC, p1SlicesOverhead, p1SlicesGeneration,
+               p2Slices, p2SlicesNC, p2SlicesOverhead, p2SlicesGeneration,
+               p3Slices, p3SlicesNC, p3SlicesOverhead, p3SlicesGeneration,
+               controlSessionTimeout, chunkProgressTimeout, chunkProgressAfterSlicesTimeout,
+               p1LeftBandwidth, p1LeftDelay, p1LeftLossRate, p1LeftErrorRate,  p1RightBandwidth, p1RightDelay, p1RightLossRate, p1RightErrorRate,
+               p2LeftBandwidth, p2LeftDelay, p2LeftLossRate, p2LeftErrorRate,  p2RightBandwidth, p2RightDelay, p2RightLossRate, p2RightErrorRate,
+               p3LeftBandwidth, p3LeftDelay, p3LeftLossRate, p3LeftErrorRate,  p3RightBandwidth, p3RightDelay, p3RightLossRate, p3RightErrorRate,
+               scalarFileNameBase = None, vectorFileNameBase = None, hashResult = False, </li>
+            <li>Function 1: create a variable called variableSettings which is a 
+               long string containing string versions of the parameters
+            </li>
+            <li>Function 2: an if statement checking if the HashResult is true.</li>
+
+            <li class="function-name"><u>Get scalar file name (getScalarName)</u></li>
+            <li>Parameters: same parameters as function above</li>
+            <li>Function 1: Return Measurement name with the return of 
+               the function getVariableSettings
+            </li>
+
+            <li class="function-name"><u> Run the measurement(runMeasurement)</u></li>
+            <li>Parameters: same parameters as function above</li>
+            <li>Function 1: Get parameter configuration: First get the 
+               scalar File Name Base using the getScalarName that is 
+               declared above. Using the usual parameters
+            </li>
+            <li>Function 2: Replace the ".sca.bz2" with the correct names</li>
+            <li>The files are as follows, scalarFileNamePush, scalarFileNamePop, 
+               vectorFileNamePush, vectorFileNamePop, bwmFileNameSend,  bwmFileNameRecv,
+               tcpdumpFileNameSend, tcpdumpFileNameRecv, logFileNamePush, logFileNamePop, 
+               logFileNameTCPSend, logFileNameNectorSend, logFileNameTCPRecv, 
+               logFileNameNectorRecv, logFileNameBWMSend, logFileNameBWMRecv, 
+               logTracker
+            </li>
+            <li>Function 3: Declare varialbe "variables" that is the return 
+               of the function getVariableSettings which takes the usual 
+               parameters. 
+            </li>
+            <li>Function 4: Write results in summary File.</li>
+            <li>Function 5: Setup QoS, which means it is settings up each 
+               line with the BW, delay, lossrate and errorRate.   
+            </li>
+            <li>Function 6: Setup Scenario: The ipc2Filter variable is 
+               setup. 
+            </li>
+            <li>Function 7: Iterate through the ipc2Ips (address). At start 
+               just include some functions to kill scripts etc, also include 
+               log files. 
+            </li>
+            <li>Function 8: while iterating through have to check if its 
+               NECTOR or MPTCP that is used. If its necotr then we need to
+               use nector-tracker, nector-receive. 
+            </li>
+            <li>Function 9: Now go through the adress in Ipc1Ips</li>
+            <li>Function 10: Declare the ipc1 slice parameters, for all paths 
+               (specifically: IPs, slices,slicesNC, slicesOverhead, slicesGeneration 
+               for all the paths 1 ,2 ,3 .)
+            </li>
+            <li>Function 11: while iterating through have to check if its 
+               NECTOR or MPTCP that is used. If its necotr then we need to
+               use nector-send. On the other hand the MPTCP works using the 
+               ./tcp-send
+            </li>
+            <li>??????????????????????????</li>
+            <li>Function 12: Finally clean up the experiment.</li>
+
+
+            <li class="function-name"><u> Run the measurement(runMeasurement)</u></li>
+            <li>Parameters: same parameters as function above</li>
+            <li>Function 1: Get parameter configuration: First get the 
+               scalar File Name Base using the getScalarName that is 
+               declared above. Using the usual parameters
+            </li>
+
+                        
+            <li class="function-name"><u>Main program (Main program)</u></li>
+            <li>Parameters: OS stream, file Directory entry </li>
+            <li>Function 1: Do some try catch at the first, but we have 
+               results.summary file to print to.
+            </li>
+            <li>Function 2: Prepare output directory on remote PCs</li>
+            <li>Function 3: Start performing runs loops.</li>
+            <li>Function 4: Declare a "now" variable that is 
+               basically a variable to have distinction.
+            </li>
+            <li>Function 5: The first loop is to go through the 
+               payload (filesize in 10000 Bytes for eks, 180 
+               expiration)
+            </li>
+            <li>Function 6: The second loop is chunks (for eks 100 
+               chunks).
+            </li>
+            <li>Function 7: Loop with the chunkRequest parameters 
+               controlSessionTimeout, chunkProgressTimeout, chunkProgressAfterSlicesTimeout) 
+
+            </li>
+            <li>Function 8: There are three path 1 , 2 , 3 and each one of them has parameters,
+               which are left and right: BW, delay, loss rate, error rate. And 
+               finally slices, slices NC, slices overhead, slices generation.
+               
+            </li>
+            <li>Function 9: Finally we have the measurement Type which is 
+               either NECTOR or MPTCP. 
+            </li>
+             
+         </ul>
+      </div>
+      <ul>
+         <li class="list-title"><br>Chunk Creator</br></li>
+         <li class="underline"></li>
+      </ul>
+
+   </div>
+</body>
+</html>

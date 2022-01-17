@@ -15,8 +15,24 @@
          <a href="../../index.html" >Back to homepage</a>
       </div>
       <h2>NECTOR - Northbound scenario</h2>
+      <div class="text"> The Northbound scenario is described as follows:
+      </div>
+      <img src="./functions/assets/northbound_scenario.PNG" />
+      <div class="paragraphs">
+         <p class="text">A single remote source, like UxV, with multiple networks
+            to a central receiver.
+         </p>
+         <p class="text">It is basically a one-to-one connection with multiple 
+            network paths in between. One of the connections must be 
+            satcom.
+         </p>
+         <p class="text">Here, Network Coding (NC) is used in mobility management
+            and load balancing by considering multiple networks with at least
+            one satellite and other terrestrial components, where traffic can
+            operate on more than one networks in parallel. 
+         </p>
+      </div>
       <div class="intruduction">
-         <div class="text"> adad</div>
 
          <!--
          <div class="diagram">
@@ -63,6 +79,7 @@
             <a href="functions/fixed_tracker.html"  id="square2" style="margin-left:15px;">NECTOR Fixed Tracker</a>
 
          </div>
+         <a href="functions/northbound_script.html" id="outside_square">Run Northbound Test script</a>
 
       </div>
 
@@ -71,8 +88,136 @@
          <li><a href=""></a></li>
          <li><a href="">NECTOR</a></li>
          <li><a href="">General info</a></li>-->
+         <div class="text"> The Northbound scenario is described as follows: </div>
 
-      </ul>
+         <img class="nector_northbound" src="./functions/assets/nector_northbound.PNG" />
+
+         <div class="container2">
+
+            <a class="card" href="functions/vgram.html">
+              <div class="face face1">
+                <div class="content">
+                  <span class="stars"></span>
+                  <h2 class="type1">VGRAM</h2>
+                  <p class="type1">Java is a class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible.</p>
+                </div>
+              </div>
+              <div class="face face2">
+                <h2>VGRAM</h2>
+              </div>
+            </a>
+
+            <a class="card" href="functions/encoder.html">
+              <div class="face face1">
+                <div class="content">
+                  <span class="stars"></span>
+                  <h2 class="type2">NECTOR<br>Encoder</h2>
+                  <p class="type2"> Responsible for creating chunks and NC encoding at chunk-level etc.</p>
+                </div>
+              </div>
+              <div class="face face2">
+                <h2>NECTOR<br>Encoder</h2>
+              </div>
+            </a>
+          
+            <a class="card" href="functions/uvx_client.html">
+              <div class="face face1">
+                <div class="content">
+                  <span class="stars"></span>
+                  <h2 class="type3">Uvx<br>client</h2>
+                  <p class="type3">Responsible for sending chunks, communicating with operating system kernel to know the list of available networks, communicating with NECTOR Tracker, etc.</p>
+                </div>
+              </div>
+              <div class="face face2">
+                <h2>Uvx<br>client</h2>
+              </div>
+            </a>
+
+            <a class="card" href="functions/chunk_sender.html">
+               <div class="face face1">
+                 <div class="content">
+                   <span class="stars"></span>
+                   <h2 class="type1">Chunk<br>Sender</h2>
+                   <p class="type1">Creating slices, NC coding at slice-level if required, sending slices over UDP, etc.</p>
+                 </div>
+               </div>
+               <div class="face face2">
+                 <h2>Chunk<br>Sender</h2>
+               </div>
+             </a>
+          </div>
+
+
+          
+          <div class="container2">
+
+            <a class="card" href="functions/chunk_receiver.html">
+              <div class="face face1">
+                <div class="content">
+                  <span class="stars"></span>
+                  <h2 class="type1">Chunk<br>Receiver</h2>
+                  <p class="type1">Receiving IP-sized slices of the chunk data over UDP, and performing NC decoding if required. It sends received chunks to the NECTOR client.</p>
+                </div>
+              </div>
+              <div class="face face2">
+                <h2>Chunk<br>Receiver</h2>
+              </div>
+            </a>
+
+            <a class="card" href="functions/c3_client.html">
+              <div class="face face1">
+                <div class="content">
+                  <span class="stars"></span>
+                  <h2 class="type2">C3<br>Client</h2>
+                  <p class="type2"> – it is responsible for requesting more chunks from the relevant seeder. It also communicates with the NECTOR Fixed Tracker for being aware of the seeder status. It sends the received chunk to the NECTOR decoder.</p>
+                </div>
+              </div>
+              <div class="face face2">
+                <h2>C3<br>Client</h2>
+              </div>
+            </a>
+
+            <a class="card" href="functions/decoder.html">
+               <div class="face face1">
+                 <div class="content">
+                   <span class="stars"></span>
+                   <h2 class="type3">Nector<br>Decoder</h2>
+                   <p class="type3"> It is responsible for performing the NC decoding at chunk level. It sends source chunks to the VGRAM.</p>
+                 </div>
+               </div>
+               <div class="face face2">
+                 <h2>Nector<br>Decoder</h2>
+               </div>
+             </a>
+ 
+             <a class="card" href="functions/fixed_tracker.html">
+                <div class="face face1">
+                  <div class="content">
+                    <span class="stars"></span>
+                    <h2 class="type1">Fixed<br>Tracker</h2>
+                    <p class="type1"> – It is located at C3 node. It is responsible for managing ClientTracker requests and Tracker responses. It adds the available Peers (Seeders and Leechers) to its Peer list directory via Client-Tracker requests and sends the list of available Peers to each Peer.</p>
+                  </div>
+                </div>
+                <div class="face face2">
+                  <h2>Fixed<br>Tracker</h2>
+                </div>
+              </a>
+         </div>
+
+         <div class="container2">
+            <a class="card" href="functions/northbound_script.html">
+               <div class="face face1">
+                 <div class="content">
+                   <span class="stars"></span>
+                   <h2 class="type1">Run Northbound test script</h2>
+                   <p class="type1"> – This is the main script that we can run in order to run a simulation of the Northbound scenario.</p>
+                 </div>
+               </div>
+               <div class="face face2">
+                 <h2>Northbound<br>script</h2>
+               </div>
+             </a>
+         </div>
    </main>
 </body>
 </html>

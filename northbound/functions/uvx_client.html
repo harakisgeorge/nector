@@ -7,7 +7,13 @@
    <title>Document</title>
    <link rel="stylesheet" href="../../index.css">
    <link rel="stylesheet" href="functions.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
 
+   <!-- extra fonts -->
+   <link
+   href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap"
+   rel="stylesheet"
+   />
 </head>
 <body>
    <div class="container">
@@ -80,7 +86,22 @@
 
        <h2 class="title">UVX - NECTOR Client - Code</h2>
        <ul>
-         <li class="list-title">nector-client.cc</li>
+         <div class="list" id="">
+            <div class="list-title">
+               <div>
+                  <li >nector-client.cc</li>
+                  <li class="underline2"></li>
+               </div>
+               <button type="button" class="list-btn">
+                  <span class="plus-icon">
+                  <i class="far fa-plus-square"></i>
+                  </span>
+                  <span class="minus-icon">
+                  <i class="far fa-minus-square"></i>
+                  </span>
+               </button>
+            </div>
+            <div class="list-text">
          <li class="underline2"></li>
 
          <li class="function-name"><u>Constructor ( NECTORClient )</u></li>
@@ -165,11 +186,27 @@
          <li class="function-name"><u>Get slice settings maps</u></li>
          <li>????? </li>
          
-
+            </div>
+            </div>
       </ul>
 
       <ul>
-         <li class="list-title">nector-peer.cc</li>
+         <div class="list" id="">
+            <div class="list-title">
+               <div>
+                  <li >nector-peer.cc</li>
+                  <li class="underline2"></li>
+               </div>
+               <button type="button" class="list-btn">
+                  <span class="plus-icon">
+                  <i class="far fa-plus-square"></i>
+                  </span>
+                  <span class="minus-icon">
+                  <i class="far fa-minus-square"></i>
+                  </span>
+               </button>
+            </div>
+            <div class="list-text">
          <li class="underline2"></li>
 
          <li class="function-name"><u>Constructor ( NECTORPeerSession )</u></li>
@@ -203,11 +240,89 @@
 
          <li class="function-name"><u>Shut down all sessions (closeSessions)</u></li>
          <li>Function 1: iterate and stop all sessions</li>
+         <li>Function 2: while the iterator has not reached 
+            the control session map (end) then continue to the next
+         </li>
+         <li>Function 3: create a session variable from the 
+            iterator-> second that will see if its an outgoing or 
+            incoming session that is going to close and finally close 
+            tbe session. 
+         </li>
+         <li>Function 4: Close the chunk sender and the chunk
+            receiver.
+         </li>
+
+         <li class="function-name"><u>Establish outgoing control connection
+             (createControlConnectionHandler)</u></li>
+         <li>Parameters: clientIdentifier , endpoint</li>
+         <li>Function 1: Start looking for session (control session map 
+            and find the endpoint based on that.
+         </li>
+         <li>Function 2: Check if its the end of the controlsessionMap add 
+            then create a new remote endpoint (establish connection)
+         </li>
+         <li>Function 3: Create session and initialise data receiver</li>
+         <li>Function 4: Connect trying new outgoing control connection to 
+            an endpoint
+         </li>
+         <li>Function 5: Bind new control socket to peer's address 
+           (open and bind)
+         </li>
+         <li>Function 6: Try to establish connection</li>
+         <li>Function 7: ???????????????</li>
+
+         <li class="function-name"><u> Establish outgoing control connection
+            (createControlConnection)</u></li>
+        <li>Parameters: clientIdentifier , endpoint</li>
+        <li>Function 1:  Handle sockets functionalities in worker thread, 
+           since it also handles the asynchronous I/O. </li>
+        <li>Function 2: Established outgoing control connection</li>
+
+         <li class="function-name"><u> Established outgoing control connection
+         (establishedControlConnection)</u></li>
+         <li>Parameters: session , error</li>
+         <li>Function 1:  mutex and handle outgoing connection. </li>
+         <li>Function 2: ???????????????????</li>
+         <li>Function 3: ???????????????????</li>
+         <li>Function 4: ???????????????????</li>
+
+         <li class="function-name"><u> Established outgoing control connection
+         (establishedControlConnection)</u></li>
+         <li>Parameters: session , error</li>
+         <li>Function 1:  mutex and handle outgoing connection. </li>
+         <li>Function 2: ???????????????????</li>
+
+         </div>
+      </div>
+
+
+
+
+
+
+
+
+
 
       </ul>
 
       <ul>
-         <li class="list-title">nector-clientmanager.cc</li>
+         <div class="list" id="">
+            <div class="list-title">
+               <div>
+                  <li >nector-clientmanager.cc</li>
+                  <li class="underline2"></li>
+               </div>
+               <button type="button" class="list-btn">
+                  <span class="plus-icon">
+                  <i class="far fa-plus-square"></i>
+                  </span>
+                  <span class="minus-icon">
+                  <i class="far fa-minus-square"></i>
+                  </span>
+               </button>
+            </div>
+            <div class="list-text">
          <li class="underline2"></li>
 
          <li class="function-name"><u>Constructor ( NECTORClientManager )</u></li>
@@ -322,7 +437,7 @@
             but try to reconnect to tracker. Deretter read the message
             from xml<li>
          <li>Functionality 4:Decode the mssage , handle message <li>
-         <li>Functionality 5:Read next message's length <li>
+         <div>Functionality 5:Read next message's length <div>
 
             <li class="function-name"><u>Handle peer information from tracker
                 (handleClientTrackerRequest)</u></li>
@@ -388,6 +503,8 @@
          <li>Functionality 1: Request IP address (header, message, length,flags etc) </li>
          <li>Functionality 2: Receive IP addresses and change notifications </li>
          <li>Different ways for different IP types ?????????/</li>
+      </div>
+   </div>
       </ul>
 
    </div>

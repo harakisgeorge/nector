@@ -7,7 +7,12 @@
    <title>Document</title>
    <link rel="stylesheet" href="../../index.css">
    <link rel="stylesheet" href="functions.css">
-
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+   <!-- extra fonts -->
+   <link
+     href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap"
+     rel="stylesheet"
+   />
 </head>
 <body>
    <div class="container">
@@ -74,10 +79,22 @@
    
        <h2 class="title">NECTOR Encoder - Code</h2>
        <ul>
-
-         <li class="list-title">nector-encoder.cc</li>
-         <li class="underline2"></li>
-         
+         <div class="list" id="nector-encoder">
+         <div class="list-title">
+            <div>
+               <li >nector-encoder.cc</li>
+               <li class="underline2"></li>
+            </div>
+            <button type="button" class="list-btn">
+               <span class="plus-icon">
+               <i class="far fa-plus-square"></i>
+               </span>
+               <span class="minus-icon">
+               <i class="far fa-minus-square"></i>
+               </span>
+            </button>
+         </div>
+         <div class="list-text">
          <li class="function-name"><u>Constructor (NECTOREncoder)</u></li>
          <li>Parameters: number of chunks, code Chunks scheme </li>
          <li>Function 1: Initizalise to null and 0 , pointers
@@ -242,13 +259,26 @@
          <li>Function 3: Encoder - > add Packet (pointer,size) </li>
 
 
+         </div>
+      </div>
 
 
-
-
-         <li class="list-title">nector-file.cc</li>
-         <li class="underline2"></li>
-         
+      <div class="list" id="nector-file">
+         <div class="list-title">
+            <div>
+               <li >nector-file.cc</li>
+               <li class="underline2"></li>
+            </div>
+            <button type="button" class="list-btn">
+               <span class="plus-icon">
+               <i class="far fa-plus-square"></i>
+               </span>
+               <span class="minus-icon">
+               <i class="far fa-minus-square"></i>
+               </span>
+            </button>
+         </div>         
+         <div class="list-text">
          <li class="function-name"><u>Duplicate nectorfile (DuplicateNECTORFile)</u></li>
          <li>Parameters: nectorFile </li>
          <li>Function 1: set nectorFile size and create a new File
@@ -325,32 +355,117 @@
         </li>
 
         <li class="function-name"><u>Output operator (operator)</u></li>
-        <li>Parameters: nector File, chunk Number </li>
-        <li>Function 1: declare a hash array, by casting to a 
-           nector Hash, and taking in the size
+        <li>Parameters: os Stream, nector File </li>
+        <li>Function 1: Print header, Nector File</li>
+        <li>Function 2: Nector file details, such as version,
+           nectorFile size, payload file size, hash, file name,
+           chunk count, last chunk, other chunks, creation time,
+           expiration time.
         </li>
-        <li>Function 2: check whether the sizes match and return
-           the pointer to the hash Array.
+
+
+        <li class="function-name"><u>Get chunks Network Coding Schemes
+           (GetChunksNetworkCodingScheme)</u></li>
+        <li>Parameters: nector File </li>
+        <li>Function 1: check if nector file is not null</li>
+        <li>Function 2: create a new scheme using network coding scheme
+        </li>
+      </div>
+
+      </div>
+
+
+      <div class="list" id="nector-filedirectory">
+         <div class="list-title">
+            <div>
+               <li >nector-filedirectory.cc</li>
+               <li class="underline2"></li>
+            </div>
+            <button type="button" class="list-btn">
+               <span class="plus-icon">
+               <i class="far fa-plus-square"></i>
+               </span>
+               <span class="minus-icon">
+               <i class="far fa-minus-square"></i>
+               </span>
+            </button>
+         </div>         
+         <div class="list-text">
+        <li class="underline2"></li>
+        
+        <li class="function-name"><u>Constructor (FileDirectoryEntry)</u></li>
+        <li>Parameters: nectorFile </li>
+        <li>Function 1: -
+        </li>
+
+        <li class="function-name"><u>Destructor (FileDirectoryEntry)</u></li>
+        <li>Function 1: delete Nector file (m_File) and make the ptr null.
+        </li>
+
+        <li class="function-name"><u>Output operator (operator)</u></li>
+        <li>Parameters: OS stream, file Directory entry </li>
+        <li>Function 1: output the filedirectory entry to the OS
         </li>
 
 
+        <li class="function-name"><u>Constructor (FileDirectory)</u></li>
+
+        <li class="function-name"><u>Destructor (FileDirectory)</u></li>
+        <li>Function 1: find the iterator to file's beginning.</li>
+        <li>Function 2: Iterate and go through the whole file and 
+           start deleting.
+        </li>
+
+        <li class="function-name"><u>Update entry in directory 
+            (FileDirectory)</u></li>
+        <li>Parameters: nector File</li>
+        <li>Function 1: Find File Director Entry of client.</li>
+        <li>Function 2: Handle new NECTOR file: add FileDirectoryEntry
+           but check expiration first, check hash
+        </li>
+        <li>Function 3: Handle new NECTOR file: check for error if the nector 
+           file is correct also and delete. 
+        </li>
+
+         <li class="function-name"><u>Expire out-of-date entries, NECTOR 
+            FILE given by nector FIle in progress is not expired. 
+          (FileDirectory)</u></li>
+         <li>Parameters: nector File In Progress</li>
+         <li>Function 1: Get the time now.</li>
+         <li>Function 2: latestNectorFile = nectorFileInProgress</li>
+         <li>Function 3: Iterate through to the Files.end() in order 
+            to expire the files. (if statement to find out if a file 
+            is expired)
+         </li>
+         <li>Function 4: ?????????????????????
+         </li>
+
+         <li class="function-name"><u>Output operator
+          (os stream operator)</u></li>
+         <li>Parameters: Output stream, file Directory</li>
+         <li>Function 1: Declare first Entry as bool = true</li>
+         <li>Function 2: do a for loop to find the file directory entries.</li>
 
 
+         </div>
+         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-         <li class="list-title">nector-chunk.cc</li>
+         <div class="list" id="nector-chunk">
+            <div class="list-title">
+               <div>
+                  <li >nector-chunk.cc</li>
+                  <li class="underline2"></li>
+               </div>
+               <button type="button" class="list-btn">
+                  <span class="plus-icon">
+                  <i class="far fa-plus-square"></i>
+                  </span>
+                  <span class="minus-icon">
+                  <i class="far fa-minus-square"></i>
+                  </span>
+               </button>
+            </div>         
+            <div class="list-text">
          <li class="underline2"></li>
          
          <li class="function-name"><u>Constructor (NECTORChunk)</u></li>
@@ -581,8 +696,10 @@
          <li>Function 1:  Get the right slice number r</li> 
          <li>Function 2: Generate the slice payload (from chunk header+payload)</li> 
          <li>Function 3: Create slice</li> 
-
+      </div>
+      </div>
       </ul>
    </div>
+   <script src="functions.js" ></script>
 </body>
 </html>

@@ -31,8 +31,31 @@
             one satellite and other terrestrial components, where traffic can
             operate on more than one networks in parallel. 
          </p>
+
+
+         <p class="text">NECTOR is implemented in C++, the sender side accepts 
+           DGRAMS from the app. Datagrams are passed by shared memory.
+            The sender 
+           starts producing the chunks creating the chunk file. 
+           The receiver starts to initiate chunk transfers by requesting 
+           a chunk over each path. The sender transmits a chunk over a path 
+           as bursts of its configured number of slices. 
+           Since each path transports only one chunk at a time, there is 
+           no need to congestion control. Once a chunk is decodable (i.e. 
+           a sufficient number of NC-coded slices has been received to successfully 
+           compute the chunk), or no further slice has been received within a 
+           configured timeout, a new chunk is requested by the receiver.
+           The receiver signals the sender to stop the entire transmission 
+           once it has a sufficient number of NC-coded chunks received to 
+           decode the full datagram. 
+           If there is a new torrent file available while the transmission 
+           is still in progress, the current transmission is aborted. 
+           If there is a new torrent file available while the transmission 
+           once it has a sufficient number of NC-coded chunks and the transfer 
+           of the new datagram is started instead. 
+
+       </p>
       </div>
-      <div class="intruduction">
 
          <!--
          <div class="diagram">
@@ -57,7 +80,7 @@
                Display
                (ext)</a>
          </div>
--->
+
          <div class="diagram">
             <a href="functions/vgram.html" id="square2">VGRAM</a>
             <div id="link1"></div>
@@ -82,7 +105,7 @@
          <a href="functions/northbound_script.html" id="outside_square">Run Northbound Test script</a>
 
       </div>
-
+-->
       <!--
       <ul class="buttons-group">
          <li><a href=""></a></li>
@@ -214,7 +237,7 @@
                  </div>
                </div>
                <div class="face face2">
-                 <h2>Northbound<br>script</h2>
+                 <h2>Script</h2>
                </div>
              </a>
          </div>

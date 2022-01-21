@@ -13,6 +13,8 @@
 
 .navigate-button {
   margin-bottom: 30px;
+  position: fixed;
+  top: 0;
 }
 .center-container {
   margin-top: 100px;
@@ -35,6 +37,9 @@
   width: 80%;
 }
 
+.title {
+  margin-top: 40px;
+}
 .container ul .list-title {
   margin-top: 50px;
   font-size: 2rem;

@@ -19,16 +19,86 @@
       <h2 class="title">Fixed Tracker</h2>
       <div class="center-container">
         <p> – It is located at C3 node. It is responsible for managing ClientTracker requests and Tracker responses. It adds the available Peers (Seeders and
-Leechers) to its Peer list directory via Client-Tracker requests and sends the list of
-available Peers to each Peer. </p>
+            Leechers) to its Peer list directory via Client-Tracker requests and sends the list of
+            available Peers to each Peer. </p>
         <img src="assets/tracker.PNG" />
 
       </div>
+      <h3>Three sub-functional blocks for NECTOR Encoder</h3>
       <ul>
-         <li class="list-title"><br>Chunk Creator</br></li>
+         <li class="list-title"><br>NECTOR Fixed Tracker</br></li>
          <li class="underline"></li>
+         <li>
+            There is only one Tracker in the Northbound Scenario (Figure 30).
+         </li>
+         <li>NECTOR Tracker has following three functionalities:</li>
+         <li>1. Managing Client-Tracker requests: explained in the previous sub-sections.</li>
+         <li>2. Tracker responses: explained in the previous sub-sections.</li>
+         <li>3. Sending/Receiving NECTOR File: explained in the previous sub-sections.</li>
+
+       
       </ul>
 
+
+      
+      <div class="content">
+         <svg id="more-arrows">
+           <polygon class="arrow-top" points="37.6,27.9 1.8,1.3 3.3,0 37.6,25.3 71.9,0 73.7,1.3 "/>
+           <polygon class="arrow-middle" points="37.6,45.8 0.8,18.7 4.4,16.4 37.6,41.2 71.2,16.4 74.5,18.7 "/>
+           <polygon class="arrow-bottom" points="37.6,64 0,36.1 5.1,32.8 37.6,56.8 70.4,32.8 75.5,36.1 "/>
+         </svg>
+       </div>
+
+
+       <h2 class="title">NECTOR Fixed Tracker - Code</h2>
+       <ul>
+         <div class="list" id="nector-encoder">
+         <div class="list-title">
+            <div>
+               <li >nector-encoder.cc</li>
+               <li class="underline2"></li>
+            </div>
+            <button type="button" class="list-btn">
+               <span class="plus-icon">
+               <i class="far fa-plus-square"></i>
+               </span>
+               <span class="minus-icon">
+               <i class="far fa-minus-square"></i>
+               </span>
+            </button>
+         </div>
+         <div class="list-text">
+         <li class="function-name"><u>Constructor (NECTORMessage)</u></li>
+         <li>Parameters: timeStamp </li>
+         <li>Function 1: Initizalise timestamp</li>
+
+
+         <li class="function-name"><u>Serialize (NECTORMessage:serialize)</u></li>
+         <li>Parameters: ar, version </li>
+         <li>Function 1: Initizalise timestamp</li>
+         
+
+
+
+
+         <li class="function-name"><u>NECTORClientTrackerRequest (NECTORClientTrackerRequest)</u></li>
+
+
+         <li class="function-name"><u>Constructor (NECTORClientTrackerRequest)</u></li>
+         <li>Parameters: timeStamp, clientIdentifier </li>
+         <li>Function 1: Initialize client identifier</li>
+         
+
+
+
+         <li class="function-name"><u>Constructor (NECTORClientTrackerRequest)</u></li>
+         <li>Parameters: archive ar, version </li>
+         <li>Function 1: Initialize client identifier</li>
+
+
+         </div>
+      </div>
+       </ul>
    </div>
 </body>
 </html>

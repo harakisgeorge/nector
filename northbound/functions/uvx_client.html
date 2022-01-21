@@ -210,8 +210,10 @@
          <li class="underline2"></li>
 
          <li class="function-name"><u>Constructor ( NECTORPeerSession )</u></li>
-         <li>Parameters: peer, chunk sender, chunk receiver, remote client identifier
-            remote endpoint, control socket, timeout timer, chunk progress timeout timer,
+         <li>Parameters: peer, chunk sender, chunk receiver, 
+            remote client identifier
+            remote endpoint, control socket, timeout timer, 
+            chunk progress timeout timer,
             is outgoing connection, datasocket endpoint, data socket.
          </li>
          <li>Function 1: disable MPTCP, to ensure explicit address handling</li>
@@ -226,7 +228,22 @@
 
 
          <li class="function-name"><u>Another Contructor ( NECTORPeer )</u></li>
-         <li>Function 1: ????????????????????????</li>
+         <li>Parameters: nectorClient, address, slicesMap, 
+            control Session timeout, control sessions timeout, 
+            chunk progress timeout</li>
+         <li>Function 1: Disable MPTCP, to ensure explicit address handling</li>
+         <li>Function 2: Bind socket (and error checking)</li>
+         <li>Function 3: accept incoming control connections</li>
+         <li>Function 4: binding has also chosen the port 
+            -> update Control Socket end point.
+         </li>
+         <li>Function 5: Start thread(startFunction, this) 
+            and also some error checking.
+         </li>
+         <li>Function 6: Start thread(startFunction, this) 
+            and also some error checking.
+         </li>
+
 
          
          <li class="function-name"><u>Another Destructor ( NECTORPeer )</u></li>
@@ -286,11 +303,12 @@
          <li>Function 3: ???????????????????</li>
          <li>Function 4: ???????????????????</li>
 
-         <li class="function-name"><u> Established outgoing control connection
-         (establishedControlConnection)</u></li>
-         <li>Parameters: session , error</li>
-         <li>Function 1:  mutex and handle outgoing connection. </li>
-         <li>Function 2: ???????????????????</li>
+         <li class="function-name"><u> Accept incoming control connection.
+         (acceptControlConnection)</u></li>
+         <li>Parameters: error</li>
+         <li>Function 1: mutex and handle outgoing connection. </li>
+         <li>Function 2: handle incoming control connection.</li>
+         <li>Function 3: handle incoming control connection.</li>
 
          </div>
       </div>
@@ -508,5 +526,6 @@
       </ul>
 
    </div>
+   <script src="functions.js"></script>
 </body>
 </html>

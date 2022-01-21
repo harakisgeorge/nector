@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="../../style.css">
+   <link rel="stylesheet" href="../../index.css">
+   <link rel="stylesheet" href="previous_paper.css">
+</head>
+<body>
+   <div class="navigate-button">
+      <a href="../../index.html" >Back to homepage</a>
+   </div>
+   <div class="container">
+      
+      <h2>Previous Paper</h2>
+            <ul>
+               <li>
+                  Small scale testbed to evaluate the performance of 
+                  NECTOR over off-the-shelf products that can be used 
+                  in UAVs. 
+               </li>
+               <li>
+                  We will run four scenarios, but each scenario, has these 
+                  same characteristics
+
+               </li>
+               <li>Network 1 satellite link while networks 2 and 3 
+                  are configured as low bandwidth cellular links, 
+                  mimicking 2G/3G coverage in rural areas. 
+               </li>
+               <li>Network 1 is always available while networks 2 and 
+                  3 availability (cellular links) vary over time. 
+                  The on/off time duration is configured such as network 2 
+                  is available (66.67%) and network 3 is hardly available 
+                  (33.33% of total time) in scenarios 1, 2 , 3. 
+               </li>
+               <li>
+                  Scenario 1: emulating fast bandwidth variations
+              </li>
+              <li>Scenario 3: emulating slow bandwidth variations.</li>
+              <li>Scenarios 1,2,3: all three networks are available 
+                 at the start of the experiments. 
+              </li>
+              <li>Last scenario: time duration varies randomly between 
+                 1 and 10 seconds. 
+              </li>
+
+
+              <li>The total time taken to transfer a datagram from the sender
+               to the receiver is given by T (in s).
+              </li>
+              <li>The application layer performance is defined as goodput (g), 
+                 as the number of useful information (n) delivered at the 
+                 receiver per unit of time: 
+                 g = (8 * n)/T. 
+              </li>
+              <li>The unitilization ratio(th) is given as the goodput divided
+                 by the sum of the total bandwidth of all networks: 
+              </li>
+              <li>The receiver has f interfaces corresponding to f networks 
+                 where n as is the number of bytes received, and n as is 
+                 the number of bytes sent by the ith interface of the sender. 
+                 The total number of bytes at the reciever are n(all), where
+                 overhead (h ) is defined as additional bytes n(all) minus n(d)
+                 divided by the datagram size n(d)
+
+                 h = ( n(all) - n(d) ) / n(d)
+
+              </li>
+
+              <li>Finally, we also define network traffic load shared by the i(ith)
+                 network 
+                 
+              </li>
+
+              <li>Results: </li>
+              <li>Optimal selection of n: First, select low n's , such as 
+                 32 and 48, because a huge amount chunks are creating trouble 
+                 at the encoder and decoder.
+              </li>
+              <li>Performance evaluation for different scenarios with 
+                 on/off model: 
+              </li>
+         
+      </ul>
+   </div>
+</body>
+</html>

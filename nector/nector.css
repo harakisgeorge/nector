@@ -31,6 +31,7 @@
   color: black;
   text-align: center;
   cursor: pointer;
+  position: fixed;
 }
 
 .navigate-button:hover {
@@ -115,7 +116,9 @@
   text-transform: uppercase;
   font-weight: 600;
 }
-
+.navigate-button {
+  position: fixed;
+}
 .container .card span {
   transition: 0.5;
   opacity: 0;

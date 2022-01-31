@@ -14,6 +14,7 @@
   color: black;
   text-align: center;
   cursor: pointer;
+  position: fixed;
 }
 
 .navigate-button:hover {
